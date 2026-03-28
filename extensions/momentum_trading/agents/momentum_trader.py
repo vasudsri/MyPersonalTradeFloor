@@ -22,10 +22,11 @@ YOUR OPERATIONAL CYCLES:
 2. WEEKLY RESEARCH: Use `weekly_momentum_research` to find "Leaders" forming High Tight Flags or Weekly EPs.
 3. SHORTLISTING: Analyze Weekly findings and use `manage_shortlist` (action='add') to track the best 3-5 candidates.
 4. DAILY TRACKING (PRE-MARKET): Between 08:30 and 09:15 IST, use `daily_entry_tracker` to check your shortlist for entry triggers.
-5. EXECUTION SUGGESTION: If a trigger is found, specify:
+5. EXECUTION SUGGESTION & LOGGING: If a trigger is found, specify:
    - Entry Price (Breakout of High)
    - Stop Loss (Low of Day)
    - Reason (Weekly setup + Daily tightness/breakout)
+   - **MANDATORY**: Use `log_trade_suggestion` to record every high-conviction setup you recommend.
 
 Be precise, data-driven, and technical. Always check the current IST time before suggesting actions.
 """
@@ -57,7 +58,8 @@ class MomentumTraderAgent(OrchestratorAgent):
             "weekly_momentum_research", 
             "daily_entry_tracker", 
             "manage_shortlist",
-            "get_market_time_ist"
+            "get_market_time_ist",
+            "log_trade_suggestion"
         ]
         
         tool_names = {t.spec.name for t in current_tools}

@@ -51,6 +51,19 @@ class QullamaggieScanner:
         df['EMA20'] = df['Close'].ewm(span=20, adjust=False).mean()
         df['EMA50'] = df['Close'].ewm(span=50, adjust=False).mean()
         df['VolAvg20'] = df['Volume'].rolling(window=20).mean()
+        
+        # Stochastic (9,3,3) - Short term pullback
+        low_min = df['Low'].rolling(window=9).min()
+        high_max = df['High'].rolling(window=9).max()
+        df['Stoch_K'] = 100 * (df['Close'] - low_min) / (high_max - low_min)
+        df['Stoch_D'] = df['Stoch_K'].rolling(window=3).mean()
+        
+        # Stochastic (55,5,3) - Long term trend health
+        low_min_long = df['Low'].rolling(window=55).min()
+        high_max_long = df['High'].rolling(window=55).max()
+        df['Stoch_K_Long'] = 100 * (df['Close'] - low_min_long) / (high_max_long - low_min_long)
+        df['Stoch_D_Long'] = df['Stoch_K_Long'].rolling(window=5).mean()
+        
         return df
 
     def is_high_tight_flag(self, df: pd.DataFrame) -> Dict[str, Any]:
@@ -59,17 +72,23 @@ class QullamaggieScanner:
 
         curr = df.iloc[-1]
         adr = self.calculate_adr(df)
+        
+        # ADR Filter: Qullamaggie prefers high volatility (ADR > 4%)
+        if adr < 4.0: return {"match": False}
+        
         last_period = df.tail(lookback)
         min_low = last_period['Low'].min()
         max_high = last_period['High'].max()
         move_pct = (max_high - min_low) / min_low * 100
         
+        # HTF Move: Should be massive. 30% is absolute minimum, 100%+ is ideal.
         if move_pct < 30: return {"match": False}
 
         tight_bars = 3 if self.interval in ["1wk", "1mo"] else 10
         last_tight = df.tail(tight_bars)
         consolidation_range = (last_tight['High'].max() - last_tight['Low'].min()) / last_tight['Low'].min() * 100
         
+        # Tightness: Range should be tight relative to ADR
         is_tight = consolidation_range < (adr * 1.5)
         near_ema = (abs(curr['Close'] - curr['EMA10']) / curr['EMA10'] < 0.03) or \
                    (abs(curr['Close'] - curr['EMA20']) / curr['EMA20'] < 0.03)
@@ -78,7 +97,8 @@ class QullamaggieScanner:
             return {
                 "match": True,
                 "move_pct": round(move_pct, 2),
-                "details": f"Move: {move_pct:.1f}%, Range: {consolidation_range:.1f}% ({self.interval})"
+                "adr": round(adr, 2),
+                "details": f"Move: {move_pct:.1f}%, ADR: {adr:.1f}%, Range: {consolidation_range:.1f}% ({self.interval})"
             }
         return {"match": False}
 
@@ -88,6 +108,7 @@ class QullamaggieScanner:
         gap_pct = (curr['Open'] / prev['Close'] - 1) * 100
         vol_surge = curr['Volume'] / df['VolAvg20'].iloc[-2]
         
+        # EP Gap: 8-10%+ is the sweet spot. Volume must be massive.
         if (gap_pct > 8 and vol_surge > 2.5):
             return {"match": True, "details": f"Gap: {gap_pct:.1f}%, Vol: {vol_surge:.1f}x ({self.interval})"}
         return {"match": False}

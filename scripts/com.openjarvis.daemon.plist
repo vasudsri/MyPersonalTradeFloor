@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.openjarvis.daemon</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/svasudevan/Vibecode/PersonalAI/OpenJarvis/.venv/bin/jarvis</string>
+        <string>operators</string>
+        <string>start</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>WorkingDirectory</key>
+    <string>/Users/svasudevan/Vibecode/PersonalAI/OpenJarvis</string>
+    <key>StandardOutPath</key>
+    <string>/Users/svasudevan/Vibecode/PersonalAI/Momentum-Trader-Private/extensions/momentum_trading/data/daemon.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/svasudevan/Vibecode/PersonalAI/Momentum-Trader-Private/extensions/momentum_trading/data/daemon_error.log</string>
+</dict>
+</plist>

@@ -141,6 +141,55 @@ class ListStockImagesTool(BaseTool):
         files = os.listdir(base_dir)
         return ToolResult(tool_name="list_available_charts", content=f"Available charts: {files}", success=True)
 
+@ToolRegistry.register("log_trade_suggestion")
+class TradeLoggerTool(BaseTool):
+    """Logs a trade suggestion to the local trade log CSV."""
+    tool_id = "log_trade_suggestion"
+    @property
+    def spec(self) -> ToolSpec:
+        return ToolSpec(
+            name="log_trade_suggestion", 
+            description="Logs a high-conviction trade suggestion to the system for performance tracking.", 
+            parameters={
+                "type": "object", 
+                "properties": {
+                    "symbol": {"type": "string"},
+                    "setup": {"type": "string", "enum": ["HTF", "EP", "ORB"]},
+                    "action": {"type": "string", "enum": ["BUY", "SELL", "SHORT"]},
+                    "price": {"type": "number"},
+                    "stop_loss": {"type": "number"},
+                    "conviction": {"type": "integer", "minimum": 1, "maximum": 10},
+                    "notes": {"type": "string"}
+                },
+                "required": ["symbol", "setup", "action", "price", "stop_loss", "conviction"]
+            }
+        )
+    def execute(self, **params) -> ToolResult:
+        import csv
+        log_dir = "extensions/momentum_trading/data"
+        os.makedirs(log_dir, exist_ok=True)
+        log_path = os.path.join(log_dir, "agent_trade_suggestions.csv")
+        
+        file_exists = os.path.isfile(log_path)
+        now = get_ist_now().strftime('%Y-%m-%d %H:%M:%S')
+        
+        with open(log_path, mode='a', newline='') as f:
+            writer = csv.writer(f)
+            if not file_exists:
+                writer.writerow(["Timestamp", "Symbol", "Setup", "Action", "Price", "SL", "Conviction", "Notes"])
+            writer.writerow([
+                now, 
+                params["symbol"], 
+                params["setup"], 
+                params["action"], 
+                params["price"], 
+                params["stop_loss"], 
+                params["conviction"], 
+                params.get("notes", "")
+            ])
+            
+        return ToolResult(tool_name="log_trade_suggestion", content=f"Trade suggestion for {params['symbol']} logged successfully.", success=True)
+
 @ToolRegistry.register("analyze_chart_technicals")
 class AnalyzeChartTechnicalsTool(BaseTool):
     """Performs a deep technical analysis on a specific chart image."""

@@ -1,6 +1,7 @@
 import json
 import os
 import logging
+import yfinance as yf
 from extensions.momentum_trading.trading.scanner import QullamaggieScanner
 
 # Configure logging
@@ -19,8 +20,16 @@ class ActiveWatcher:
     def _load_shortlist(self):
         if os.path.exists(CONFIG_PATH):
             with open(CONFIG_PATH, "r") as f:
-                return json.load(f).get("shortlist", [])
+                data = json.load(f)
+                return data.get("shortlist", [])
         return []
+
+    def fetch_data(self, symbol):
+        try:
+            return yf.download(symbol, period="1y", interval="1d", progress=False)
+        except Exception as e:
+            logger.error(f"Error fetching {symbol}: {e}")
+            return None
 
     def analyze_entry_conditions(self):
         if not self.shortlist:
@@ -29,12 +38,12 @@ class ActiveWatcher:
 
         logger.info(f"Analyzing {len(self.shortlist)} shortlisted stocks for Daily entry...")
         
-        # Use Daily interval
         scanner = QullamaggieScanner(watchlist=self.shortlist, interval="1d")
         
         for symbol in self.shortlist:
-            df = scanner.fetch_data(symbol)
-            if df.empty: continue
+            df = self.fetch_data(symbol)
+            if df is None or df.empty: continue
+            
             df = scanner.add_indicators(df)
             
             curr = df.iloc[-1]
@@ -52,16 +61,29 @@ class ActiveWatcher:
             # Condition 3: Price Breakout (Breaking above yesterday's high)
             is_breakout = curr['Close'] > prev['High']
             
+            # Condition 4: Stochastic Pullback (Stoch < 30 indicates a potential dip to buy)
+            is_stoch_pullback = curr['Stoch_D'] < 30
+            
+            # Condition 5: Trend Health (Long Stoch > 50)
+            is_healthy_trend = curr['Stoch_D_Long'] > 50
+            
             print(f"\n--- Analysis for {symbol} ---")
-            if is_breakout and vol_ratio > 1.2:
-                print(f"🔥 SIGNAL: DAILY BREAKOUT DETECTED!")
+            print(f"   Price: {curr['Close']:.2f}, ADR: {adr:.1f}%, Stoch(9,3,3): {curr['Stoch_D']:.1f}")
+            
+            if is_breakout and vol_ratio > 1.2 and is_healthy_trend:
+                signal = "🔥 BUY SIGNAL: BREAKOUT"
+                if is_stoch_pullback: signal += " + STOCH PULLBACK"
+                print(f"{signal}")
                 print(f"   Action: Consider Entry. Volume: {vol_ratio:.1f}x. Stop at LOD: {curr['Low']:.2f}")
             elif is_hugging:
                 print(f"⌛ STATUS: HUGGING EMAs (Getting Tight)")
-                print(f"   Action: Add to Alert. Volatility is contracting near EMAs.")
+                print(f"   Action: Watch for tomorrow's breakout. Stoch Long: {curr['Stoch_D_Long']:.1f}")
+            elif is_stoch_pullback and is_healthy_trend:
+                print(f"🎣 STATUS: PULLBACK IN UPTREND")
+                print(f"   Action: Look for reversal candles near EMAs. Stoch: {curr['Stoch_D']:.1f}")
             else:
-                print(f"💤 STATUS: CHOPPY / NO SIGNAL")
-                print(f"   Action: Wait for price to tighten or break yesterday's high.")
+                print(f"💤 STATUS: NO SETUP")
+                print(f"   Action: Wait for consolidation or breakout.")
 
 if __name__ == "__main__":
     watcher = ActiveWatcher()
