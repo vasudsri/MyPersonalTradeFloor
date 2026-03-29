@@ -7,9 +7,10 @@ from datetime import datetime
 sys.path.append(os.getcwd())
 
 from openjarvis import Jarvis
-# Import tools to register them
+# Import tools and agents to register them
 import extensions.momentum_trading.tools.qullamaggie 
-
+import extensions.momentum_trading.agents.momentum_trader
+import extensions.momentum_trading.agents.chart_validator
 def main():
     # Use a capable model for strategy analysis
     model = "qwen2.5:7b" 

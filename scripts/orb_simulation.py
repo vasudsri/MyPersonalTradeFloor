@@ -31,17 +31,26 @@ def backtest_orb_strategy(stock_files, daily_path):
     all_stock_trades = []
 
     for stock_file in stock_files:
-        symbol = os.path.basename(stock_file).replace("_5minute.csv", "")
+        symbol = os.path.basename(stock_file).replace("_5minute.parquet", "")
         print(f"\nProcessing Stock: {symbol}")
         
         if not os.path.exists(stock_file):
             print(f"File {stock_file} not found. Skipping.")
             continue
             
-        df = pd.read_csv(stock_file)
+        # Read parquet instead of csv
+        df = pd.read_parquet(stock_file)
+        
+        # Ensure 'date' column is lowercase (from our converter)
+        if 'Date' in df.columns:
+            df.rename(columns={'Date': 'date'}, inplace=True)
+            
         df['date'] = pd.to_datetime(df['date'])
         df.set_index('date', inplace=True)
         df = df.sort_index()
+
+        # Lowercase column names for the rest of the logic
+        df.columns = [c.lower() for c in df.columns]
 
         # Prepare intraday indicators
         df['atr'] = calculate_atr(df)
@@ -163,13 +172,13 @@ def backtest_orb_strategy(stock_files, daily_path):
 
 if __name__ == "__main__":
     stocks = [
-        "OpenJarvis/src/openjarvis/data/raw/ADANIENT_5minute.csv",
-        "OpenJarvis/src/openjarvis/data/raw/CHOLAFIN_5minute.csv",
-        "OpenJarvis/src/openjarvis/data/raw/DLF_5minute.csv",
-        "OpenJarvis/src/openjarvis/data/raw/RECLTD_5minute.csv",
-        "OpenJarvis/src/openjarvis/data/raw/CANBK_5minute.csv"
+        "extensions/momentum_trading/data/fine/ADANIENT_5minute.parquet",
+        "extensions/momentum_trading/data/fine/CHOLAFIN_5minute.parquet",
+        "extensions/momentum_trading/data/fine/DLF_5minute.parquet",
+        "extensions/momentum_trading/data/fine/RECLTD_5minute.parquet",
+        "extensions/momentum_trading/data/fine/CANBK_5minute.parquet"
     ]
     backtest_orb_strategy(
         stocks,
-        "OpenJarvis/src/openjarvis/data/refine/NIFTY_UNIFIED.parquet"
+        "extensions/momentum_trading/data/fine/NIFTY_UNIFIED.parquet"
     )

@@ -121,4 +121,4 @@ def backtest_index_strategy(file_path, start_year=2015, end_year=2025):
     print("="*40)
 
 if __name__ == "__main__":
-    backtest_index_strategy("OpenJarvis/src/openjarvis/data/refine/NIFTY_UNIFIED.parquet")
+    backtest_index_strategy("extensions/momentum_trading/data/fine/NIFTY_UNIFIED.parquet")
