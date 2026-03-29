@@ -1,0 +1,47 @@
+{
+    "market_regime": "TRENDING_DOWN",
+    "recommended_focus": "REVERSION",
+    "top_5_picks": [
+        {
+            "symbol": "HAL.NS",
+            "strategy": "REVERSION",
+            "conviction": 10,
+            "setup": "REVERSION_BUY",
+            "action": "BUY",
+            "logic": "RS: 39. RSI: 19.9, Z-Score: -2.0, BB: 3594.6"
+        },
+        {
+            "symbol": "RELIANCE.NS",
+            "strategy": "REVERSION",
+            "conviction": 8,
+            "setup": "REVERSION_BUY",
+            "action": "BUY",
+            "logic": "RS: 79. RSI: 37.3, Z-Score: -2.1, BB: 1350.2"
+        },
+        {
+            "symbol": "ENRIN.NS",
+            "strategy": "REVERSION",
+            "conviction": 8,
+            "setup": "REVERSION_BUY",
+            "action": "BUY",
+            "logic": "RS: 50. RSI: 32.3, Z-Score: -2.1, BB: 2637.1"
+        },
+        {
+            "symbol": "UPL.NS",
+            "strategy": "REVERSION",
+            "conviction": 8,
+            "setup": "REVERSION_BUY",
+            "action": "BUY",
+            "logic": "RS: 94. RSI: 40.3, Z-Score: -2.2, BB: 598.4"
+        },
+        {
+            "symbol": "BDL.NS",
+            "strategy": "REVERSION",
+            "conviction": 7,
+            "setup": "REVERSION_BUY",
+            "action": "BUY",
+            "logic": "RS: 15. RSI: 24.9, Z-Score: -2.0, BB: 1136.9"
+        }
+    ],
+    "overall_sentiment": "Bearish"
+}
