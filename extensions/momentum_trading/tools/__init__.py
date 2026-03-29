@@ -1,1 +1,1 @@
-from . import qullamaggie, reversion
+from . import qullamaggie, reversion, strategist, battle_plan, rs

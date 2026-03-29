@@ -73,16 +73,23 @@ This document outlines the strategic roadmap for validating, testing, and optimi
 
 ---
 
-## 7. Mean Reversion Extension
-**Goal:** Complement Momentum with a "Buy the Fear" strategy for range-bound or overextended markets.
+## 7. Mean Reversion & Multi-Strategy Orchestration
+**Goal:** Complement Momentum with Reversion and create a unified "Battle Plan" for the day.
 
-- [ ] **Mean Reversion Logic:**
-    - [ ] Implement `MeanReversionScanner` with RSI, Bollinger Bands, and Z-Score (Distance from Mean).
-    - [ ] Define "Exhaustion" criteria (High volume reversals at price extremes).
-- [ ] **Specialized Agent:**
-    - [ ] Create `MeanReversionAgent` with a counter-trend mindset and English-only mandate.
-- [ ] **Backtesting:**
-    - [ ] Create `reversion_simulation.py` to validate snaphack performance on NIFTY 100.
-- [ ] **Cross-Strategy Coordination:**
-    - [ ] Ensure `log_trade_suggestion` handles both Momentum and Reversion setups.
+- [x] **Mean Reversion Logic:**
+    - [x] Implement `MeanReversionScanner` with RSI, Bollinger Bands, and Z-Score.
+- [x] **Trading Floor Manager:**
+    - [x] Create `TradingFloor` class to consolidate Momentum and Reversion scans into a single técnico report.
+- [x] **Master Strategist Agent:**
+    - [x] Implement `MasterStrategistAgent` to synthesize findings and pick the absolute best 3-5 trades based on market regime.
+- [x] **Battle Plan State:**
+    - [x] Create `morning_battle_plan.py` to produce a structured `battle_plan.json` for dashboard/algo consumption.
+
+---
+
+## 8. Dashboard & Algo Integration (Future)
+**Goal:** Visualize the Battle Plan and automate execution.
+
+- [ ] **Web Dashboard:** Build a simple React/Tailwind frontend to display `battle_plan.json` and `agent_trade_suggestions.csv`.
+- [ ] **Broker API Connector:** Implement an automated connector to execute `battle_plan.json` suggestions via a broker API.
 
