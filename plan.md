@@ -70,3 +70,19 @@ This document outlines the strategic roadmap for validating, testing, and optimi
     - [ ] Configure `tailscale` or similar for secure remote monitoring of the agent.
 - [x] **Backup Strategy:**
     - [x] Automated daily backup of `configs/` and `data/` to a private cloud/git branch.
+
+---
+
+## 6. Hallucination Mitigation & Reliability Upgrades
+**Goal:** Eliminate LLM hallucinations and institutionalize the trading edge through deterministic validation.
+
+- [x] **Strict Schema Enforcement (Priority):**
+    - [x] Implement Pydantic models for `TradeSuggestion` to force structured JSON output (Symbol, Setup, Price, SL, Conviction).
+- [x] **Mathematical Externalization (Priority):**
+    - [x] Update tools to return deterministic Technical Scorecards (e.g., `is_adr_above_threshold`, `is_ema_aligned`) instead of raw numbers.
+- [ ] **Optional / Future Analysis:**
+    - [ ] "Devil's Advocate" Multi-Agent Loop (`RiskValidatorAgent`).
+    - [ ] Chain of Verification (CoV) Prompts.
+    - [ ] Vision-to-Math Reconciliation Tool.
+    - [ ] Dynamic Context Windowing / Compression.
+

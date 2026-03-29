@@ -73,34 +73,33 @@ class QullamaggieScanner:
         curr = df.iloc[-1]
         adr = self.calculate_adr(df)
         
-        # ADR Filter: Qullamaggie prefers high volatility (ADR > 4%)
-        if adr < 4.0: return {"match": False}
-        
         last_period = df.tail(lookback)
         min_low = last_period['Low'].min()
         max_high = last_period['High'].max()
         move_pct = (max_high - min_low) / min_low * 100
         
-        # HTF Move: Should be massive. 30% is absolute minimum, 100%+ is ideal.
-        if move_pct < 30: return {"match": False}
-
         tight_bars = 3 if self.interval in ["1wk", "1mo"] else 10
         last_tight = df.tail(tight_bars)
         consolidation_range = (last_tight['High'].max() - last_tight['Low'].min()) / last_tight['Low'].min() * 100
         
-        # Tightness: Range should be tight relative to ADR
-        is_tight = consolidation_range < (adr * 1.5)
-        near_ema = (abs(curr['Close'] - curr['EMA10']) / curr['EMA10'] < 0.03) or \
-                   (abs(curr['Close'] - curr['EMA20']) / curr['EMA20'] < 0.03)
+        # Deterministic Scorecard
+        scorecard = {
+            "is_adr_valid": bool(adr >= 4.0),
+            "is_move_valid": bool(move_pct >= 30),
+            "is_tight": bool(consolidation_range < (adr * 1.5)),
+            "is_near_ema10": bool(abs(curr['Close'] - curr['EMA10']) / curr['EMA10'] < 0.03),
+            "is_near_ema20": bool(abs(curr['Close'] - curr['EMA20']) / curr['EMA20'] < 0.03),
+        }
+        
+        match = scorecard["is_adr_valid"] and scorecard["is_move_valid"] and scorecard["is_tight"] and (scorecard["is_near_ema10"] or scorecard["is_near_ema20"])
 
-        if is_tight and near_ema:
-            return {
-                "match": True,
-                "move_pct": round(move_pct, 2),
-                "adr": round(adr, 2),
-                "details": f"Move: {move_pct:.1f}%, ADR: {adr:.1f}%, Range: {consolidation_range:.1f}% ({self.interval})"
-            }
-        return {"match": False}
+        return {
+            "match": match,
+            "move_pct": round(move_pct, 2),
+            "adr": round(adr, 2),
+            "scorecard": scorecard,
+            "details": f"Move: {move_pct:.1f}%, ADR: {adr:.1f}%, Range: {consolidation_range:.1f}% ({self.interval})"
+        }
 
     def is_episodic_pivot(self, df: pd.DataFrame) -> Dict[str, Any]:
         if len(df) < 21: return {"match": False}
@@ -108,10 +107,18 @@ class QullamaggieScanner:
         gap_pct = (curr['Open'] / prev['Close'] - 1) * 100
         vol_surge = curr['Volume'] / df['VolAvg20'].iloc[-2]
         
-        # EP Gap: 8-10%+ is the sweet spot. Volume must be massive.
-        if (gap_pct > 8 and vol_surge > 2.5):
-            return {"match": True, "details": f"Gap: {gap_pct:.1f}%, Vol: {vol_surge:.1f}x ({self.interval})"}
-        return {"match": False}
+        scorecard = {
+            "is_gap_valid": bool(gap_pct > 8),
+            "is_vol_surge_valid": bool(vol_surge > 2.5)
+        }
+        
+        match = scorecard["is_gap_valid"] and scorecard["is_vol_surge_valid"]
+
+        return {
+            "match": match, 
+            "scorecard": scorecard,
+            "details": f"Gap: {gap_pct:.1f}%, Vol: {vol_surge:.1f}x ({self.interval})"
+        }
 
     def scan(self) -> List[Dict[str, Any]]:
         """
@@ -126,13 +133,25 @@ class QullamaggieScanner:
             # Bulk download
             full_df = yf.download(self.watchlist, period=period, interval=self.interval, progress=False, group_by='ticker')
             
+            # If only one symbol was requested, yfinance might not return a multi-index level 0
+            # Let's ensure we handle both cases correctly
             for symbol in self.watchlist:
-                # Extract symbol data from multi-index or single index df
-                if len(self.watchlist) > 1:
-                    if symbol not in full_df.columns.levels[0]: continue
-                    df = full_df[symbol].dropna()
-                else:
-                    df = full_df.dropna()
+                try:
+                    if len(self.watchlist) > 1:
+                        if symbol not in full_df.columns.levels[0]: continue
+                        df = full_df[symbol].copy()
+                    else:
+                        # For single symbol, yfinance might not have ticker level
+                        df = full_df.copy()
+                    
+                    # If columns are still multi-indexed (e.g. from single-ticker download with group_by)
+                    if isinstance(df.columns, pd.MultiIndex):
+                        df.columns = df.columns.get_level_values(-1)
+
+                    df.dropna(inplace=True)
+                except Exception as extract_err:
+                    logger.warning(f"Failed to extract data for {symbol}: {extract_err}")
+                    continue
 
                 if df.empty: continue
                 
