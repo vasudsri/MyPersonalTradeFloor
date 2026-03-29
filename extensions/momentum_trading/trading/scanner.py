@@ -91,6 +91,15 @@ class QullamaggieScanner:
             "is_near_ema20": bool(abs(curr['Close'] - curr['EMA20']) / curr['EMA20'] < 0.03),
         }
         
+        # Conviction Calculation (Baseline 4, max 10)
+        conviction = 4
+        if scorecard["is_adr_valid"]: conviction += 1
+        if move_pct > 100: conviction += 2
+        elif move_pct > 50: conviction += 1
+        if consolidation_range < adr: conviction += 2 # Extra tight
+        elif scorecard["is_tight"]: conviction += 1
+        if scorecard["is_near_ema10"]: conviction += 1
+        
         match = scorecard["is_adr_valid"] and scorecard["is_move_valid"] and scorecard["is_tight"] and (scorecard["is_near_ema10"] or scorecard["is_near_ema20"])
 
         return {
@@ -98,6 +107,7 @@ class QullamaggieScanner:
             "move_pct": round(move_pct, 2),
             "adr": round(adr, 2),
             "scorecard": scorecard,
+            "conviction_score": min(conviction, 10),
             "details": f"Move: {move_pct:.1f}%, ADR: {adr:.1f}%, Range: {consolidation_range:.1f}% ({self.interval})"
         }
 
@@ -112,11 +122,19 @@ class QullamaggieScanner:
             "is_vol_surge_valid": bool(vol_surge > 2.5)
         }
         
+        # Conviction Calculation
+        conviction = 5
+        if gap_pct > 15: conviction += 2
+        elif gap_pct > 10: conviction += 1
+        if vol_surge > 5: conviction += 3
+        elif vol_surge > 3: conviction += 2
+        
         match = scorecard["is_gap_valid"] and scorecard["is_vol_surge_valid"]
 
         return {
             "match": match, 
             "scorecard": scorecard,
+            "conviction_score": min(conviction, 10),
             "details": f"Gap: {gap_pct:.1f}%, Vol: {vol_surge:.1f}x ({self.interval})"
         }
 

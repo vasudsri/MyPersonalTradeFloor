@@ -73,16 +73,16 @@ This document outlines the strategic roadmap for validating, testing, and optimi
 
 ---
 
-## 6. Hallucination Mitigation & Reliability Upgrades
-**Goal:** Eliminate LLM hallucinations and institutionalize the trading edge through deterministic validation.
+## 7. Mean Reversion Extension
+**Goal:** Complement Momentum with a "Buy the Fear" strategy for range-bound or overextended markets.
 
-- [x] **Strict Schema Enforcement (Priority):**
-    - [x] Implement Pydantic models for `TradeSuggestion` to force structured JSON output (Symbol, Setup, Price, SL, Conviction).
-- [x] **Mathematical Externalization (Priority):**
-    - [x] Update tools to return deterministic Technical Scorecards (e.g., `is_adr_above_threshold`, `is_ema_aligned`) instead of raw numbers.
-- [ ] **Optional / Future Analysis:**
-    - [ ] "Devil's Advocate" Multi-Agent Loop (`RiskValidatorAgent`).
-    - [ ] Chain of Verification (CoV) Prompts.
-    - [ ] Vision-to-Math Reconciliation Tool.
-    - [ ] Dynamic Context Windowing / Compression.
+- [ ] **Mean Reversion Logic:**
+    - [ ] Implement `MeanReversionScanner` with RSI, Bollinger Bands, and Z-Score (Distance from Mean).
+    - [ ] Define "Exhaustion" criteria (High volume reversals at price extremes).
+- [ ] **Specialized Agent:**
+    - [ ] Create `MeanReversionAgent` with a counter-trend mindset and English-only mandate.
+- [ ] **Backtesting:**
+    - [ ] Create `reversion_simulation.py` to validate snaphack performance on NIFTY 100.
+- [ ] **Cross-Strategy Coordination:**
+    - [ ] Ensure `log_trade_suggestion` handles both Momentum and Reversion setups.
 
