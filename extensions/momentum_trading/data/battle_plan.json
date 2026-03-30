@@ -3,44 +3,89 @@
     "recommended_focus": "REVERSION",
     "top_5_picks": [
         {
-            "symbol": "HAL.NS",
+            "symbol": "ICICIGI.NS",
             "strategy": "REVERSION",
             "conviction": 10,
             "setup": "REVERSION_BUY",
             "action": "BUY",
-            "logic": "RS: 39. RSI: 19.9, Z-Score: -2.0, BB: 3594.6"
+            "execution": {
+                "entry": "RETEST of technical low. Wait for price reclaim of Lower BB.",
+                "stop_loss": "Strictly below recent swing low.",
+                "exit": "Exit fully at the 20 EMA (The Mean)."
+            },
+            "sizing": {
+                "quantity": 1000,
+                "capital_allocation": "5.0%"
+            },
+            "logic": "RS: 43. RSI: 18.8, Z-Score: -2.1, BB: 1693.8"
         },
         {
-            "symbol": "RELIANCE.NS",
+            "symbol": "360ONE.NS",
             "strategy": "REVERSION",
             "conviction": 8,
             "setup": "REVERSION_BUY",
             "action": "BUY",
-            "logic": "RS: 79. RSI: 37.3, Z-Score: -2.1, BB: 1350.2"
+            "execution": {
+                "entry": "RETEST of technical low. Wait for price reclaim of Lower BB.",
+                "stop_loss": "Strictly below recent swing low.",
+                "exit": "Exit fully at the 20 EMA (The Mean)."
+            },
+            "sizing": {
+                "quantity": 1000,
+                "capital_allocation": "5.0%"
+            },
+            "logic": "RS: 1. RSI: 32.3, Z-Score: -2.3, BB: 956.4"
         },
         {
-            "symbol": "ENRIN.NS",
+            "symbol": "BIOCON.NS",
             "strategy": "REVERSION",
             "conviction": 8,
             "setup": "REVERSION_BUY",
             "action": "BUY",
-            "logic": "RS: 50. RSI: 32.3, Z-Score: -2.1, BB: 2637.1"
+            "execution": {
+                "entry": "RETEST of technical low. Wait for price reclaim of Lower BB.",
+                "stop_loss": "Strictly below recent swing low.",
+                "exit": "Exit fully at the 20 EMA (The Mean)."
+            },
+            "sizing": {
+                "quantity": 1000,
+                "capital_allocation": "5.0%"
+            },
+            "logic": "RS: 18. RSI: 35.5, Z-Score: -2.1, BB: 360.7"
         },
         {
-            "symbol": "UPL.NS",
+            "symbol": "HAVELLS.NS",
             "strategy": "REVERSION",
             "conviction": 8,
             "setup": "REVERSION_BUY",
             "action": "BUY",
-            "logic": "RS: 94. RSI: 40.3, Z-Score: -2.2, BB: 598.4"
+            "execution": {
+                "entry": "RETEST of technical low. Wait for price reclaim of Lower BB.",
+                "stop_loss": "Strictly below recent swing low.",
+                "exit": "Exit fully at the 20 EMA (The Mean)."
+            },
+            "sizing": {
+                "quantity": 1000,
+                "capital_allocation": "5.0%"
+            },
+            "logic": "RS: 38. RSI: 31.8, Z-Score: -2.1, BB: 1200.6"
         },
         {
-            "symbol": "BDL.NS",
+            "symbol": "HUDCO.NS",
             "strategy": "REVERSION",
-            "conviction": 7,
+            "conviction": 8,
             "setup": "REVERSION_BUY",
             "action": "BUY",
-            "logic": "RS: 15. RSI: 24.9, Z-Score: -2.0, BB: 1136.9"
+            "execution": {
+                "entry": "RETEST of technical low. Wait for price reclaim of Lower BB.",
+                "stop_loss": "Strictly below recent swing low.",
+                "exit": "Exit fully at the 20 EMA (The Mean)."
+            },
+            "sizing": {
+                "quantity": 1000,
+                "capital_allocation": "5.0%"
+            },
+            "logic": "RS: 42. RSI: 41.1, Z-Score: -2.0, BB: 163.2"
         }
     ],
     "overall_sentiment": "Bearish"
