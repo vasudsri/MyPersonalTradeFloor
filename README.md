@@ -26,12 +26,13 @@ The core of this extension is the `momentum_trader` agent. It is an autonomous o
 *   **Timezone Aware:** Operates natively in Indian Standard Time (IST) for NSE market alignment.
 *   **Multi-Timeframe Analysis:** Performs Weekly scans for setup identification and Daily scans for entry execution.
 *   **Shortlist Management:** Maintains a "hot list" of 3-5 high-conviction stocks.
-*   **Vision-Enabled:** Can analyze uploaded stock charts for technical PIVOTs and Supply/Demand levels using the `chart_validator` sub-agent.
+*   **Vision-Driven Technical Confirmation:** Replicates high-end vision workflows (similar to Claude-based chart analysis) to connect directly with TradingView charts. It doesn't just "see" patterns; it identifies exact entry/exit levels and technical pivots (R1/S1, Supply/Demand zones) by analyzing live chart captures.
 
 ### Operational Cycles:
 1.  **Monthly Sync:** Refreshes the NIFTY 200 universe.
 2.  **Weekly Research:** Identifies leaders forming HTFs or Weekly EPs.
 3.  **Daily Tracking:** Monitors the shortlist for breakout triggers between 08:30 and 09:15 IST.
+4.  **Vision Validation:** The `chart_validator` agent performs a final visual confirmation of all high-conviction setups before they are added to the daily Battle Plan.
 
 ---
 
@@ -41,7 +42,8 @@ The extension adds several specialized tools to the OpenJarvis registry:
 *   `weekly_momentum_research`: Scans NIFTY 200 for Qullamaggie-style setups.
 *   `daily_entry_tracker`: Checks for real-time price tightness and breakout triggers.
 *   `manage_shortlist`: Persistently tracks your active trading candidates.
-*   `analyze_chart_technicals`: Deep-dive analysis of chart images for technical confirmation.
+*   `analyze_chart_technicals`: Deep-dive analysis of chart images for technical confirmation, extracting exact price levels for stops and targets.
+*   `list_available_charts`: Automatically indexes local or remote chart screenshots for the vision agent.
 *   `system_inventory`: Categorizes all available tools into "Built-in" and "Custom" (Momentum) categories.
 
 ---

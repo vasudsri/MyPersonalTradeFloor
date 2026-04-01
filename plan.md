@@ -90,11 +90,11 @@ This document outlines the strategic roadmap for validating, testing, and optimi
 ## 9. Mathematical Risk & Capital Allocation
 **Goal:** Maximize long-term growth using the Kelly Criterion while maintaining institutional-grade safety.
 
-- [ ] **Dynamic Edge Extraction:**
-    - [ ] Build a tool to parse backtest logs and calculate Win Rate ($p$) and Win/Loss Ratio ($b$) per strategy.
-- [ ] **Kelly Sizing Engine:**
-    - [ ] Implement a `RiskManager` using Fractional Kelly logic.
-    - [ ] Calculate "Optimal Share Quantity" for each pick in the Battle Plan based on Account Capital.
+- [x] **Dynamic Edge Extraction:**
+    - [x] Build a tool to parse backtest logs and calculate Win Rate ($p$) and Win/Loss Ratio ($b$) per strategy. (Implemented in `risk.py`)
+- [x] **Kelly Sizing Engine:**
+    - [x] Implement a `RiskManager` using Fractional Kelly logic.
+    - [x] Calculate "Optimal Share Quantity" for each pick in the Battle Plan based on Account Capital.
 - [ ] **Volatility Guardrails:**
     - [ ] Implement a "Maximum Drawdown Cap" to override Kelly bets during high-volatility regimes.
 
