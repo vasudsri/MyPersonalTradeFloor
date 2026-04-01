@@ -87,9 +87,14 @@ This document outlines the strategic roadmap for validating, testing, and optimi
 
 ---
 
-## 8. Dashboard & Algo Integration (Future)
-**Goal:** Visualize the Battle Plan and automate execution.
+## 9. Mathematical Risk & Capital Allocation
+**Goal:** Maximize long-term growth using the Kelly Criterion while maintaining institutional-grade safety.
 
-- [ ] **Web Dashboard:** Build a simple React/Tailwind frontend to display `battle_plan.json` and `agent_trade_suggestions.csv`.
-- [ ] **Broker API Connector:** Implement an automated connector to execute `battle_plan.json` suggestions via a broker API.
+- [ ] **Dynamic Edge Extraction:**
+    - [ ] Build a tool to parse backtest logs and calculate Win Rate ($p$) and Win/Loss Ratio ($b$) per strategy.
+- [ ] **Kelly Sizing Engine:**
+    - [ ] Implement a `RiskManager` using Fractional Kelly logic.
+    - [ ] Calculate "Optimal Share Quantity" for each pick in the Battle Plan based on Account Capital.
+- [ ] **Volatility Guardrails:**
+    - [ ] Implement a "Maximum Drawdown Cap" to override Kelly bets during high-volatility regimes.
 

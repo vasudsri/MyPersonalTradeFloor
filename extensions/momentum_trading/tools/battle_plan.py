@@ -4,6 +4,7 @@ from openjarvis.core.registry import ToolRegistry
 from openjarvis.core.types import ToolResult
 from openjarvis.tools._stubs import BaseTool, ToolSpec
 from extensions.momentum_trading.trading.floor import TradingFloor
+from extensions.momentum_trading.trading.risk import RiskManager
 
 logger = logging.getLogger(__name__)
 
@@ -24,6 +25,7 @@ class BattlePlanDraftTool(BaseTool):
     def execute(self, **params) -> ToolResult:
         try:
             floor = TradingFloor()
+            risk_mgr = RiskManager() # Loads from portfolio.json
             report = floor.produce_unified_report()
             
             regime = report["market_regime"]["regime"]
@@ -66,6 +68,12 @@ class BattlePlanDraftTool(BaseTool):
                 if rs_data["rs_rating"] < 70: conviction -= 2
                 if regime == "TRENDING_DOWN": conviction -= 2
                 
+                # Risk Sizing
+                # Use a dummy price if live data is empty for sizing demonstration
+                price = s["data"].get("price", 1000.0)
+                sl = price * 0.97 # 3% SL fallback for sizing
+                risk_data = risk_mgr.get_position_details(symbol, "MOMENTUM", price, sl)
+
                 all_picks.append({
                     "symbol": symbol,
                     "strategy": "MOMENTUM",
@@ -73,6 +81,10 @@ class BattlePlanDraftTool(BaseTool):
                     "setup": s["setup"],
                     "action": "BUY",
                     "execution": get_advice("MOMENTUM"),
+                    "sizing": {
+                        "quantity": risk_data["quantity"],
+                        "capital_allocation": f"{risk_data['capital_allocated_pct']}%"
+                    },
                     "logic": f"RS: {rs_data['rs_rating']} ({rs_data['rs_trend']}). {s['data']['details']}"
                 })
                 
@@ -84,6 +96,11 @@ class BattlePlanDraftTool(BaseTool):
 
                 if regime == "TRENDING_UP": conviction -= 2
 
+                # Risk Sizing
+                price = s["data"].get("price", 1000.0)
+                sl = price * 0.95 # 5% SL fallback for reversion
+                risk_data = risk_mgr.get_position_details(symbol, "REVERSION", price, sl)
+
                 all_picks.append({
                     "symbol": symbol,
                     "strategy": "REVERSION",
@@ -91,6 +108,10 @@ class BattlePlanDraftTool(BaseTool):
                     "setup": s["setup"],
                     "action": "BUY" if "BUY" in s["setup"] else "SELL",
                     "execution": get_advice("REVERSION"),
+                    "sizing": {
+                        "quantity": risk_data["quantity"],
+                        "capital_allocation": f"{risk_data['capital_allocated_pct']}%"
+                    },
                     "logic": f"RS: {rs_data['rs_rating']}. {s['data']['details']}"
                 })
             
