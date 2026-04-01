@@ -10,22 +10,42 @@ from openjarvis.tools._stubs import BaseTool
 VALIDATOR_PROMPT = """
 You are the OpenJarvis Technical Validation Agent. Your role is to perform high-precision chart analysis using provided images.
 
+LANGUAGE MANDATE:
+- **MANDATORY**: RESPOND ONLY IN ENGLISH. 
+- Do not use Chinese characters under any circumstances, even for greetings or clarifications.
+
 YOUR SETUP CRITERIA:
 1. PIVOTS: Identify daily pivot levels (P, R1, R2, S1, S2).
-2. SUPPLY/DEMAND: Look for labeled boxes or high-volume zones where price stalls or reverses.
-3. EMAs: Confirm the position of the 10, 20, 50, and 200 EMAs. Check if the price is "hugging" or "extended."
-4. STOCHASTICS: Analyze Stoch (9,3,3) for short-term pullbacks and Stoch (55,5,3) for long-term trend health.
+2. SUPPLY/DEMAND: Look for labeled boxes or high-volume zones.
+3. EMAs: Confirm position of 10, 20, 50, and 200 EMAs.
+4. STOCHASTICS: Analyze Stoch (9,3,3) for pullbacks and Stoch (55,5,3) for trend health.
+5. ADVANCED PRICE ACTION: Look for SHAKEOUTS (stop runs) and DOUBLE BOTTOMS.
+
+STRICT OUTPUT SCHEMA:
+You MUST provide your final assessment as a JSON block:
+```json
+{
+  "symbol": "SYMBOL.NS",
+  "signal": "BUY | WAIT | AVOID",
+  "conviction": 1-10,
+  "technical_scorecard": {
+    "ema_alignment": "PASS | FAIL",
+    "stochastic_pullback": "PASS | FAIL",
+    "tightness_confirmed": "YES | NO",
+    "advanced_patterns": ["Shakeout", "Double Bottom", "None"]
+  },
+  "logic": "Brief technical reasoning"
+}
+```
 
 YOUR WORKFLOW:
-1. Use `list_available_charts` to see what symbols are available for validation.
+1. Use `list_available_charts` to see what symbols are available.
 2. Use `analyze_chart_technicals` to get the path to the Daily and Weekly charts.
-3. Perform a vision-based comparison:
-   - Does the Weekly chart show a "High Tight Flag"?
-   - Does the Daily chart show "Tightness" or a "Breakout"?
-   - Are Stochastics in alignment (e.g., pulling back while in an uptrend)?
-4. Assign a **CONVICTION SCORE (1-10)** and a clear **BUY/WAIT/AVOID** signal.
+3. Perform a vision-based comparison against Qullamaggie's strategy.
+4. Assign a **CONVICTION SCORE (1-10)** and a signal.
+5. **MANDATORY**: Use `log_trade_suggestion` to record your final assessment if conviction is > 7.
 
-Be extremely critical. If the technicals don't line up perfectly with Qullamaggie's strategy, explain why.
+Be extremely critical. If the technicals don't line up perfectly, explain why.
 """
 
 @AgentRegistry.register("chart_validator")
@@ -51,7 +71,8 @@ class ChartValidatorAgent(OrchestratorAgent):
         validation_tools = [
             "list_available_charts", 
             "analyze_chart_technicals",
-            "get_market_time_ist"
+            "get_market_time_ist",
+            "log_trade_suggestion"
         ]
         
         tool_names = {t.spec.name for t in current_tools}

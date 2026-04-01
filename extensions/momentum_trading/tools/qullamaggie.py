@@ -141,6 +141,77 @@ class ListStockImagesTool(BaseTool):
         files = os.listdir(base_dir)
         return ToolResult(tool_name="list_available_charts", content=f"Available charts: {files}", success=True)
 
+from pydantic import BaseModel, Field, validator
+from typing import Literal
+
+class TradeSuggestionSchema(BaseModel):
+    symbol: str = Field(..., description="NSE Stock Symbol with .NS suffix")
+    setup: Literal["HTF", "EP", "ORB"]
+    action: Literal["BUY", "SELL", "SHORT"]
+    price: float = Field(..., gt=0)
+    stop_loss: float = Field(..., gt=0)
+    conviction: int = Field(..., ge=1, le=10)
+    logic: str = Field("", alias="notes")
+
+    class Config:
+        populate_by_name = True
+
+@ToolRegistry.register("log_trade_suggestion")
+class TradeLoggerTool(BaseTool):
+    """Logs a trade suggestion to the local trade log CSV."""
+    tool_id = "log_trade_suggestion"
+    @property
+    def spec(self) -> ToolSpec:
+        return ToolSpec(
+            name="log_trade_suggestion", 
+            description="Logs a high-conviction trade suggestion to the system for performance tracking.", 
+            parameters={
+                "type": "object", 
+                "properties": {
+                    "symbol": {"type": "string"},
+                    "setup": {"type": "string", "enum": ["HTF", "EP", "ORB"]},
+                    "action": {"type": "string", "enum": ["BUY", "SELL", "SHORT"]},
+                    "price": {"type": "number"},
+                    "stop_loss": {"type": "number"},
+                    "conviction": {"type": "integer", "minimum": 1, "maximum": 10},
+                    "notes": {"type": "string"}
+                },
+                "required": ["symbol", "setup", "action", "price", "stop_loss", "conviction"]
+            }
+        )
+    def execute(self, **params) -> ToolResult:
+        import csv
+        
+        # 1. Strict Validation using Pydantic
+        try:
+            trade = TradeSuggestionSchema(**params)
+        except Exception as e:
+            return ToolResult(tool_name="log_trade_suggestion", content=f"Validation Error: {str(e)}", success=False)
+
+        log_dir = "extensions/momentum_trading/data"
+        os.makedirs(log_dir, exist_ok=True)
+        log_path = os.path.join(log_dir, "agent_trade_suggestions.csv")
+        
+        file_exists = os.path.isfile(log_path)
+        now = get_ist_now().strftime('%Y-%m-%d %H:%M:%S')
+        
+        with open(log_path, mode='a', newline='') as f:
+            writer = csv.writer(f)
+            if not file_exists:
+                writer.writerow(["Timestamp", "Symbol", "Setup", "Action", "Price", "SL", "Conviction", "Notes"])
+            writer.writerow([
+                now, 
+                trade.symbol, 
+                trade.setup, 
+                trade.action, 
+                trade.price, 
+                trade.stop_loss, 
+                trade.conviction, 
+                trade.notes
+            ])
+            
+        return ToolResult(tool_name="log_trade_suggestion", content=f"Trade suggestion for {trade.symbol} logged successfully.", success=True)
+
 @ToolRegistry.register("analyze_chart_technicals")
 class AnalyzeChartTechnicalsTool(BaseTool):
     """Performs a deep technical analysis on a specific chart image."""

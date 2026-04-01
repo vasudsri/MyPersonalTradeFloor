@@ -1,0 +1,9 @@
+Timestamp,Symbol,Setup,Action,Price,SL,Conviction,Notes
+2026-03-29 03:09:19,ENSOL,ORB,BUY,15.3,14.8,6,
+2026-03-29 11:48:24,TRENT.NS,HTF,BUY,3400.5,3250.0,9,Testing reliability upgrade
+2026-03-29 11:49:47,TRENT.NS,HTF,BUY,3400.5,3250.0,9,Testing reliability upgrade
+2026-03-29 11:51:36,TRENT.NS,HTF,BUY,3400.5,3250.0,9,Testing reliability upgrade
+2026-03-29 11:53:30,TRENT.NS,HTF,BUY,3400.5,3250.0,9,Testing reliability upgrade
+2026-03-29 11:59:03,HIGH_BETA.NS,HTF,BUY,2000.0,1950.0,8,High beta stock with strong momentum indicators on HTF.
+2026-03-29 12:00:07,HIGH_BETA.NS,HTF,SHORT,250.0,260.0,9,Strong HTF setup with valid ADR and tight range.
+2026-03-29 12:00:12,HIGH_BETA.NS,HTF,BUY,45.2,0.05,9,"Move: 45.2%, ADR: 5.1%, Range: 3.2%"
