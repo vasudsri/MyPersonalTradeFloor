@@ -1,7 +1,6 @@
 __pycache__/
 *.pyc
 .DS_Store
-blog_post_momentum_agent.md
 extensions/momentum_trading/data/stockimages/
 extensions/momentum_trading/data/*.log
 extensions/momentum_trading/data/*.csv
