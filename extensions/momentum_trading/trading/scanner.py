@@ -1,47 +1,17 @@
-import yfinance as yf
 import pandas as pd
 import numpy as np
-import json
-import os
-from typing import List, Dict, Any, Optional
-from datetime import datetime, timedelta
+import yfinance as yf
 import logging
+from typing import List, Dict, Any
 
-# Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 class QullamaggieScanner:
-    """
-    Optimized Momentum Scanner.
-    Uses bulk downloads to avoid timeouts.
-    """
-    
-    CONFIG_PATH = "extensions/momentum_trading/configs/nifty200.json"
-    
-    FALLBACK_WATCHLIST = [
-        "ADANIENT.NS", "CHOLAFIN.NS", "DLF.NS", "RECLTD.NS", "CANBK.NS",
-        "JINDALSTEL.NS", "CGPOWER.NS", "BEL.NS", "JSWSTEEL.NS", "BANKBARODA.NS"
-    ]
-
-    def __init__(self, watchlist: Optional[List[str]] = None, interval: str = "1d"):
+    def __init__(self, watchlist: List[str] = None, interval: str = "1d"):
+        self.watchlist = watchlist or ["RELIANCE.NS", "TCS.NS", "HDFCBANK.NS"]
         self.interval = interval
-        self.watchlist = watchlist or self._load_watchlist()
-        logger.info(f"Scanner initialized for timeframe: {self.interval} ({len(self.watchlist)} symbols)")
-
-    def _load_watchlist(self) -> List[str]:
-        if os.path.exists(self.CONFIG_PATH):
-            try:
-                with open(self.CONFIG_PATH, "r") as f:
-                    data = json.load(f)
-                    symbols = data.get("symbols", [])
-                    if symbols: return symbols
-            except Exception as e:
-                logger.error(f"Error reading {self.CONFIG_PATH}: {e}")
-        return self.FALLBACK_WATCHLIST
 
     def calculate_adr(self, df: pd.DataFrame, period: int = 20) -> float:
-        if len(df) < period: return 0.0
         daily_range = (df['High'] - df['Low']) / df['Low'] * 100
         return float(daily_range.tail(period).mean())
 
@@ -50,152 +20,155 @@ class QullamaggieScanner:
         df['EMA10'] = df['Close'].ewm(span=10, adjust=False).mean()
         df['EMA20'] = df['Close'].ewm(span=20, adjust=False).mean()
         df['EMA50'] = df['Close'].ewm(span=50, adjust=False).mean()
-        df['VolAvg20'] = df['Volume'].rolling(window=20).mean()
         
-        # Stochastic (9,3,3) - Short term pullback
-        low_min = df['Low'].rolling(window=9).min()
-        high_max = df['High'].rolling(window=9).max()
-        df['Stoch_K'] = 100 * (df['Close'] - low_min) / (high_max - low_min)
-        df['Stoch_D'] = df['Stoch_K'].rolling(window=3).mean()
+        # 20-Day ADR %
+        df['Daily_Range_Pct'] = 100 * (df['High'] - df['Low']) / df['Low']
+        df['ADR20'] = df['Daily_Range_Pct'].rolling(20).mean()
         
-        # Stochastic (55,5,3) - Long term trend health
-        low_min_long = df['Low'].rolling(window=55).min()
-        high_max_long = df['High'].rolling(window=55).max()
-        df['Stoch_K_Long'] = 100 * (df['Close'] - low_min_long) / (high_max_long - low_min_long)
-        df['Stoch_D_Long'] = df['Stoch_K_Long'].rolling(window=5).mean()
+        # Relative Strength (3-Month Performance)
+        df['RS_3M'] = df['Close'].pct_change(63) * 100
+        
+        # Volume Average
+        if 'Volume' in df.columns:
+            df['VolAvg20'] = df['Volume'].rolling(20).mean()
         
         return df
 
-    def is_high_tight_flag(self, df: pd.DataFrame) -> Dict[str, Any]:
-        lookback = 12 if self.interval == "1wk" else (4 if self.interval == "1mo" else 60)
-        if len(df) < lookback: return {"match": False}
-
-        curr = df.iloc[-1]
-        adr = self.calculate_adr(df)
+    def is_qullamaggie_setup(self, df: pd.DataFrame) -> Dict[str, Any]:
+        if len(df) < 50: return {"match": False}
+        curr = df.iloc[-1]; prev = df.iloc[-2]
         
-        last_period = df.tail(lookback)
-        min_low = last_period['Low'].min()
-        max_high = last_period['High'].max()
-        move_pct = (max_high - min_low) / min_low * 100
+        adr_valid = curr['ADR20'] >= 4.0
+        is_trending = curr['Close'] > curr['EMA50']
+        is_near_ema = (abs(curr['Close'] - curr['EMA10']) / curr['EMA10'] < 0.03) or \
+                      (abs(curr['Close'] - curr['EMA20']) / curr['EMA20'] < 0.03)
+        is_breakout = curr['Close'] > prev['High']
+        is_strong = curr['RS_3M'] > 20
         
-        tight_bars = 3 if self.interval in ["1wk", "1mo"] else 10
-        last_tight = df.tail(tight_bars)
-        consolidation_range = (last_tight['High'].max() - last_tight['Low'].min()) / last_tight['Low'].min() * 100
+        match = adr_valid and is_trending and is_near_ema and is_breakout and is_strong
         
-        # Deterministic Scorecard
-        scorecard = {
-            "is_adr_valid": bool(adr >= 4.0),
-            "is_move_valid": bool(move_pct >= 30),
-            "is_tight": bool(consolidation_range < (adr * 1.5)),
-            "is_near_ema10": bool(abs(curr['Close'] - curr['EMA10']) / curr['EMA10'] < 0.03),
-            "is_near_ema20": bool(abs(curr['Close'] - curr['EMA20']) / curr['EMA20'] < 0.03),
-        }
-        
-        # Conviction Calculation (Baseline 4, max 10)
-        conviction = 4
-        if scorecard["is_adr_valid"]: conviction += 1
-        if move_pct > 100: conviction += 2
-        elif move_pct > 50: conviction += 1
-        if consolidation_range < adr: conviction += 2 # Extra tight
-        elif scorecard["is_tight"]: conviction += 1
-        if scorecard["is_near_ema10"]: conviction += 1
-        
-        match = scorecard["is_adr_valid"] and scorecard["is_move_valid"] and scorecard["is_tight"] and (scorecard["is_near_ema10"] or scorecard["is_near_ema20"])
-
         return {
             "match": match,
-            "move_pct": round(move_pct, 2),
-            "adr": round(adr, 2),
-            "scorecard": scorecard,
-            "conviction_score": min(conviction, 10),
-            "details": f"Move: {move_pct:.1f}%, ADR: {adr:.1f}%, Range: {consolidation_range:.1f}% ({self.interval})"
+            "scorecard": {
+                "adr_value": round(curr['ADR20'], 2),
+                "rs_3m": round(curr['RS_3M'], 2),
+                "is_trending": is_trending,
+                "is_tight": is_near_ema,
+                "is_breakout": is_breakout,
+                "price": round(curr['Close'], 2)
+            }
         }
 
     def is_episodic_pivot(self, df: pd.DataFrame) -> Dict[str, Any]:
-        if len(df) < 21: return {"match": False}
+        if len(df) < 21 or 'VolAvg20' not in df.columns: return {"match": False}
         curr = df.iloc[-1]; prev = df.iloc[-2]
         gap_pct = (curr['Open'] / prev['Close'] - 1) * 100
         vol_surge = curr['Volume'] / df['VolAvg20'].iloc[-2]
         
         scorecard = {
-            "is_gap_valid": bool(gap_pct > 8),
-            "is_vol_surge_valid": bool(vol_surge > 2.5)
+            "is_gap": gap_pct > 3.0,
+            "is_volume": vol_surge > 2.5,
+            "gap_pct": round(gap_pct, 2),
+            "vol_surge": round(vol_surge, 2),
+            "price": round(curr['Close'], 2)
         }
-        
-        # Conviction Calculation
-        conviction = 5
-        if gap_pct > 15: conviction += 2
-        elif gap_pct > 10: conviction += 1
-        if vol_surge > 5: conviction += 3
-        elif vol_surge > 3: conviction += 2
-        
-        match = scorecard["is_gap_valid"] and scorecard["is_vol_surge_valid"]
-
-        return {
-            "match": match, 
-            "scorecard": scorecard,
-            "conviction_score": min(conviction, 10),
-            "details": f"Gap: {gap_pct:.1f}%, Vol: {vol_surge:.1f}x ({self.interval})"
-        }
+        return {"match": scorecard["is_gap"] and scorecard["is_volume"], "scorecard": scorecard}
 
     def scan(self) -> List[Dict[str, Any]]:
-        """
-        Runs the scan using BULK download for speed.
-        """
         results = []
-        logger.info(f"Downloading data for {len(self.watchlist)} symbols in bulk...")
+        logger.info(f"Scanning {len(self.watchlist)} symbols for Qullamaggie/EP setups...")
         
-        period = "2y" if self.interval in ["1wk", "1mo"] else "1y"
+        data = yf.download(self.watchlist, period="100d", interval=self.interval, progress=False, group_by='ticker')
         
-        try:
-            # Bulk download
-            full_df = yf.download(self.watchlist, period=period, interval=self.interval, progress=False, group_by='ticker')
-            
-            # If only one symbol was requested, yfinance might not return a multi-index level 0
-            # Let's ensure we handle both cases correctly
-            for symbol in self.watchlist:
-                try:
-                    if len(self.watchlist) > 1:
-                        if symbol not in full_df.columns.levels[0]: continue
-                        df = full_df[symbol].copy()
-                    else:
-                        # For single symbol, yfinance might not have ticker level
-                        df = full_df.copy()
-                    
-                    # If columns are still multi-indexed (e.g. from single-ticker download with group_by)
-                    if isinstance(df.columns, pd.MultiIndex):
-                        df.columns = df.columns.get_level_values(-1)
-
-                    df.dropna(inplace=True)
-                except Exception as extract_err:
-                    logger.warning(f"Failed to extract data for {symbol}: {extract_err}")
-                    continue
-
+        for symbol in self.watchlist:
+            try:
+                df = data[symbol] if len(self.watchlist) > 1 else data
+                df = df.dropna()
                 if df.empty: continue
                 
                 df = self.add_indicators(df)
                 
-                htf = self.is_high_tight_flag(df)
-                if htf["match"]:
-                    results.append({"symbol": symbol, "setup": "HTF", "data": htf})
+                q_setup = self.is_qullamaggie_setup(df)
+                if q_setup["match"]:
+                    results.append({"symbol": symbol, "setup": "QULLAMAGGIE", "data": q_setup["scorecard"]})
+                
+                ep_setup = self.is_episodic_pivot(df)
+                if ep_setup["match"]:
+                    results.append({"symbol": symbol, "setup": "EPISODIC_PIVOT", "data": ep_setup["scorecard"]})
                     
-                ep = self.is_episodic_pivot(df)
-                if ep["match"]:
-                    results.append({"symbol": symbol, "setup": "EP", "data": ep})
-                    
-        except Exception as e:
-            logger.error(f"Bulk scan failed: {e}")
-            
-        logger.info(f"Scan complete. Found {len(results)} setups.")
+            except Exception as e:
+                logger.error(f"Scan failed for {symbol}: {e}")
         return results
 
-if __name__ == "__main__":
-    import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--interval", choices=["1d", "1wk", "1mo"], default="1d")
-    args = parser.parse_args()
-    
-    scanner = QullamaggieScanner(interval=args.interval)
-    found = scanner.scan()
-    for item in found:
-        print(f"[{item['setup']}] {item['symbol']}: {item['data']['details']}")
+class FundamentalMomentumScanner:
+    """
+    Combined Fundamental & Technical Strategy:
+    1) MarketCap: 10M to 2T INR
+    2) ROE: 15-20%
+    3) RSI(14) > 60
+    4) EMA(50) < Price
+    5) EMA(200) < EMA(50)
+    6) VWAP < Price
+    """
+    def __init__(self, watchlist: List[str], universe_metadata: Dict[str, Any]):
+        self.watchlist = watchlist
+        self.metadata = universe_metadata
+
+    def calculate_vwap(self, df_1m: pd.DataFrame) -> float:
+        if df_1m.empty: return 0
+        v = df_1m['Volume']
+        p = (df_1m['High'] + df_1m['Low'] + df_1m['Close']) / 3
+        return (p * v).sum() / v.sum()
+
+    def scan(self) -> List[Dict[str, Any]]:
+        results = []
+        logger.info(f"Running Fundamental Momentum Scan on {len(self.watchlist)} symbols...")
+        
+        for symbol in self.watchlist:
+            try:
+                meta = self.metadata.get(symbol, {})
+                mcap = meta.get('market_cap', 0)
+                roe = meta.get('roe', 0)
+                
+                # Fundamental Constraints
+                if not (10_000_000 <= mcap <= 2_000_000_000_000): continue
+                if not (0.15 <= roe <= 0.20): continue
+
+                df = yf.download(symbol, period="300d", interval="1d", progress=False)
+                if len(df) < 200: continue
+                
+                price = float(df['Close'].iloc[-1])
+                ema50 = df['Close'].ewm(span=50, adjust=False).mean().iloc[-1]
+                ema200 = df['Close'].ewm(span=200, adjust=False).mean().iloc[-1]
+                
+                # RSI(14)
+                delta = df['Close'].diff()
+                up = delta.clip(lower=0)
+                down = -1 * delta.clip(upper=0)
+                ema_up = up.ewm(com=13, adjust=False).mean()
+                ema_down = down.ewm(com=13, adjust=False).mean()
+                rs = ema_up / ema_down
+                rsi = 100 - (100 / (1 + rs.iloc[-1]))
+
+                # VWAP Check
+                df_1m = yf.download(symbol, period="1d", interval="1m", progress=False)
+                vwap = self.calculate_vwap(df_1m)
+
+                # Final Verification
+                tech_match = (rsi > 60) and (price > ema50) and (ema50 > ema200) and (price > vwap)
+                
+                if tech_match:
+                    results.append({
+                        "symbol": symbol,
+                        "setup": "FUND_MOMENTUM",
+                        "data": {
+                            "price": round(price, 2),
+                            "rsi": round(rsi, 2),
+                            "mcap_cr": round(mcap / 10_000_000, 2),
+                            "roe_pct": round(roe * 100, 2),
+                            "details": f"RSI:{round(rsi,1)} | MCAP:{round(mcap/1e7,1)}Cr | ROE:{round(roe*100,1)}%"
+                        }
+                    })
+            except Exception as e:
+                logger.error(f"Fundamental scan failed for {symbol}: {e}")
+        return results

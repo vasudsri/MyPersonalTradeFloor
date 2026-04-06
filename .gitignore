@@ -5,5 +5,7 @@ blog_post_momentum_agent.md
 extensions/momentum_trading/data/stockimages/
 extensions/momentum_trading/data/*.log
 extensions/momentum_trading/data/*.csv
-extensions/momentum_trading/data/battle_plan.json
+extensions/momentum_trading/data/*.json
+extensions/momentum_trading/data/*.html
+extensions/momentum_trading/data/*.png
 extensions/momentum_trading/reports/

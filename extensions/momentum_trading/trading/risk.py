@@ -92,6 +92,18 @@ class RiskManager:
         
         return round(final_size, 4)
 
+    def calculate_adr_stop(self, entry_price: float, adr_pct: float, side: str = "LONG") -> float:
+        """
+        Calculates a technical stop based on 20-Day ADR.
+        Stockbee/Qullamaggie often use 0.5 * ADR as a tight stop.
+        """
+        stop_distance = entry_price * (adr_pct / 100.0) * 0.5
+        
+        if side == "LONG":
+            return entry_price - stop_distance
+        else:
+            return entry_price + stop_distance
+
     def get_position_details(self, symbol: str, strategy: str, entry_price: float, stop_loss: float) -> Dict[str, Any]:
         """
         Calculates the exact quantity to buy based on Kelly % and technical SL.
@@ -116,4 +128,27 @@ class RiskManager:
             "quantity": quantity,
             "p": self.get_strategy_metrics(strategy)["win_rate"],
             "b": self.get_strategy_metrics(strategy)["win_loss_ratio"]
+        }
+
+    def get_scaling_plan(self, total_quantity: int, tranches: int = 3) -> Dict[str, Any]:
+        """
+        Splits the total quantity into tranches for time-based scaling.
+        """
+        if total_quantity <= 0:
+            return {"tranches": []}
+            
+        base_qty = total_quantity // tranches
+        plan = []
+        for i in range(tranches):
+            qty = base_qty if i < tranches - 1 else total_quantity - (base_qty * (tranches - 1))
+            plan.append({
+                "tranche": i + 1,
+                "quantity": qty,
+                "delay_minutes": i * 30 # 0, 30, 60 minutes
+            })
+            
+        return {
+            "total_quantity": total_quantity,
+            "tranches": plan,
+            "rationale": "Time-based scaling to capture VWAP and reduce volatility impact."
         }
