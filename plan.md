@@ -98,3 +98,54 @@ This document outlines the strategic roadmap for validating, testing, and optimi
 - [ ] **Volatility Guardrails:**
     - [ ] Implement a "Maximum Drawdown Cap" to override Kelly bets during high-volatility regimes.
 
+---
+
+## 10. Advanced Stochastic Methods
+**Goal:** Transition from a purely "rule-based" strategy to a "model-driven" quantitative floor using probabilistic and filtering methods.
+
+- [x] **Adaptive Trend Detection:**
+    - [x] Implement a `Kalman Filter` to dynamically track the true price trend and replace lagging moving averages (EMA20). (Implemented in `stochastic.py`)
+- [x] **High-Priority: HMM Regime Switching:**
+    - [x] Implement `Hidden Markov Models (HMM)` to dynamically identify market states (e.g., Low-Vol Bull, High-Vol Panic). Use this to "Turn Off" the momentum agent during choppy regimes where trend-following fails. (Implemented in `regime.py` and integrated into `floor.py`)
+- [ ] **Mean Reversion 2.0 (Ornstein-Uhlenbeck):**
+    - [ ] Model mean reversion using the Ornstein-Uhlenbeck process for dynamic position sizing based on mean-pull strength.
+- [ ] **Dynamic Risk via Volatility Modeling:**
+    - [ ] Introduce GARCH modeling to forecast next-day volatility and preemptively adjust Kelly sizing.
+- [ ] **Monte Carlo & GBM Forecasting:**
+    - [ ] Implement `Geometric Brownian Motion (GBM)` for price path simulations and stress-test the system's Max Drawdown over 10,000 iterations.
+- [ ] **Nonlinear Filtering (Particle Filters):**
+    - [ ] Explore `Particle Filters` for capturing non-Gaussian noise in extreme market events where Kalman Filters fail.
+- [ ] **Volatility Surface & Skew (Heston):**
+    - [ ] Integrate the `Heston Model` for equity index options to model volatility smile and capture skew-based edges.
+
+---
+
+## 11. Deployment & Execution Strategies
+**Goal:** Transition from research to a live or paper-trading environment using automated orchestration.
+
+- [ ] **Path 1: Fully Automated Python Execution (High Control)**
+    - [ ] Setup a dedicated VPS (e.g., AWS Mumbai / DigitalOcean Bangalore) for 24/7 uptime.
+    - [ ] Deploy `MasterTradingOrchestrator` to automate the Daily HMM -> Scan -> Kelly Size -> OpenAlgo flow.
+    - [ ] Implement a `run_daily.sh` script triggered via `cron` at 09:16 IST.
+- [ ] **Path 2: TradingView Webhook Bridge (Visual Control)**
+    - [ ] Deploy Pine Script strategy on TradingView Daily charts.
+    - [ ] Configure Webhook alerts to send JSON payloads directly to the OpenAlgo API endpoint.
+- [ ] **Path 3: Morning Report Assistant (Safe/Semi-Auto)**
+    - [ ] Create a "Morning Battle Plan" generator that produces a PDF/Telegram summary of HMM Regime + Top 5 Picks.
+    - [ ] Integrate a "Manual Approval" gate where the agent waits for a user 'OK' before firing orders to OpenAlgo.
+
+---
+
+## 12. Universe Expansion & Quality Filtering
+**Goal:** Adapt the wider universe selection criteria used by Qullamaggie and Pradeep Bonde (Stockbee).
+
+- [x] **Wider NSE Scanner Implementation:**
+    - [x] Expand `watchlist_path` from `nifty200.json` to a dynamic scan of all liquid NSE stocks. (Implemented in `scripts/update_universe.py`)
+    - [x] Add **Liquidity Guardrails**: `Volume > 100k` and `Daily Turnover > 5Cr`. (Integrated in dynamic scan)
+    - [x] Add **Price Floor**: `Price > 50` to remove illiquid micro-caps. (Integrated in dynamic scan)
+- [x] **ADR-Driven Selection:**
+    - [x] Implement a `HighVolatilityFilter` that only allows setups where **20-Day ADR > 4%**. (Integrated in `update_universe.py` and `scanner.py`)
+    - [x] Integrate ADR into the `RiskManager` to dynamically set stops (Stop = 0.5 * ADR). (Implemented `calculate_adr_stop` in `risk.py`)
+- [x] **Leaders Only (Relative Strength Ranking):**
+    - [x] Build a tool to rank the liquid universe by **3-Month Momentum**. (Implemented in `update_universe.py`)
+    - [x] Automate the "Top 2% Leaderboard" to focus the Momentum Agent only on the strongest names. (Automated in `update_universe.py` output)
