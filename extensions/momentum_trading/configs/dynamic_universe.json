@@ -1,0 +1,1687 @@
+{
+    "updated_at": "2026-04-06T21:56:57.222126",
+    "symbols": [
+        "ELECON.NS",
+        "RAILTEL.NS",
+        "AEGISVOPAK.NS",
+        "TARIL.NS",
+        "CARTRADE.NS",
+        "ZENTEC.NS",
+        "ACMESOLAR.NS",
+        "MAZDOCK.NS",
+        "RHIM.NS",
+        "INDIGO.NS",
+        "LATENTVIEW.NS",
+        "PARADEEP.NS",
+        "BELRISE.NS",
+        "COHANCE.NS",
+        "RKFORGE.NS",
+        "JUBLINGREA.NS",
+        "BPCL.NS",
+        "BSOFT.NS",
+        "SCI.NS",
+        "ASHOKLEY.NS",
+        "AADHARHFC.NS",
+        "BLUEJET.NS",
+        "TEGA.NS",
+        "NATIONALUM.NS",
+        "GRAPHITE.NS",
+        "AMBER.NS",
+        "MCX.NS",
+        "ZEEL.NS",
+        "PCBL.NS",
+        "PAYTM.NS",
+        "IKS.NS",
+        "SONATSOFTW.NS",
+        "KIRLOSENG.NS",
+        "KEC.NS",
+        "EMCURE.NS",
+        "SAILIFE.NS",
+        "HEG.NS",
+        "GESHIP.NS",
+        "NCC.NS",
+        "JMFINANCIL.NS",
+        "SAPPHIRE.NS",
+        "NUVOCO.NS",
+        "TMCV.NS",
+        "KPIL.NS",
+        "LTTS.NS",
+        "WAAREEENER.NS",
+        "BDL.NS",
+        "ASAHIINDIA.NS",
+        "DEVYANI.NS",
+        "MOTILALOFS.NS",
+        "SOLARINDS.NS",
+        "ABSLAMC.NS",
+        "INTELLECT.NS",
+        "CHOICEIN.NS",
+        "SHRIRAMFIN.NS",
+        "POONAWALLA.NS",
+        "TBOTEK.NS",
+        "RVNL.NS",
+        "AIIL.NS",
+        "CHENNPETRO.NS",
+        "INOXWIND.NS",
+        "THELEELA.NS",
+        "OLECTRA.NS",
+        "AEGISLOG.NS",
+        "NTPCGREEN.NS",
+        "HONASA.NS",
+        "GODFRYPHLP.NS",
+        "GSPL.NS",
+        "URBANCO.NS",
+        "NLCINDIA.NS",
+        "JKTYRE.NS",
+        "GODREJIND.NS",
+        "MMTC.NS",
+        "DATAPATTNS.NS",
+        "HINDPETRO.NS",
+        "JINDALSAW.NS",
+        "JBMA.NS",
+        "ATGL.NS",
+        "REDINGTON.NS",
+        "PINELABS.NS",
+        "AIAENG.NS",
+        "PRESTIGE.NS",
+        "RAMCOCEM.NS",
+        "EIHOTEL.NS",
+        "AWL.NS",
+        "DOMS.NS",
+        "CEATLTD.NS",
+        "GRAVITA.NS",
+        "SUNTV.NS",
+        "DIXON.NS",
+        "ZYDUSWELL.NS",
+        "KAYNES.NS",
+        "GRSE.NS",
+        "HINDCOPPER.NS",
+        "PFC.NS",
+        "ANANTRAJ.NS",
+        "PETRONET.NS",
+        "GPIL.NS",
+        "SCHNEIDER.NS",
+        "GABRIEL.NS",
+        "PREMIERENE.NS",
+        "ITI.NS",
+        "LLOYDSME.NS",
+        "ACUTAAS.NS",
+        "BALRAMCHIN.NS",
+        "MAPMYINDIA.NS",
+        "KAJARIACER.NS",
+        "ICICIAMC.NS",
+        "HBLENGINE.NS",
+        "JUBLPHARMA.NS",
+        "MINDACORP.NS",
+        "COROMANDEL.NS",
+        "FINCABLES.NS",
+        "IRCON.NS",
+        "SPLPETRO.NS",
+        "ADANIPOWER.NS",
+        "ABLBL.NS",
+        "JAINREC.NS",
+        "BEML.NS",
+        "APARINDS.NS",
+        "MAHABANK.NS",
+        "COCHINSHIP.NS",
+        "POLYMED.NS",
+        "JSL.NS",
+        "HFCL.NS",
+        "CYIENT.NS",
+        "SAREGAMA.NS",
+        "HEXT.NS",
+        "ONESOURCE.NS",
+        "MGL.NS",
+        "CLEAN.NS",
+        "MEESHO.NS",
+        "CGCL.NS",
+        "SWANCORP.NS",
+        "ENGINERSIN.NS",
+        "OIL.NS",
+        "DEEPAKFERT.NS",
+        "ITCHOTELS.NS",
+        "VOLTAS.NS",
+        "IGIL.NS",
+        "NEWGEN.NS",
+        "LENSKART.NS",
+        "VMM.NS",
+        "CHOLAHLDNG.NS",
+        "FSL.NS",
+        "NBCC.NS",
+        "ANGELONE.NS",
+        "AARTIIND.NS",
+        "WOCKPHARMA.NS",
+        "FIVESTAR.NS",
+        "CANFINHOME.NS",
+        "ADANIENSOL.NS",
+        "GMDCLTD.NS",
+        "BATAINDIA.NS",
+        "RADICO.NS",
+        "TITAGARH.NS",
+        "BLS.NS",
+        "KPRMILL.NS",
+        "ADANIGREEN.NS",
+        "WELSPUNLIV.NS",
+        "FORCEMOT.NS",
+        "SIGNATURE.NS",
+        "GROWW.NS",
+        "CUB.NS",
+        "LODHA.NS",
+        "SWIGGY.NS",
+        "SAIL.NS",
+        "PGEL.NS",
+        "JWL.NS",
+        "IDBI.NS",
+        "J&KBANK.NS",
+        "IFCI.NS",
+        "ATHERENERG.NS",
+        "TECHNOE.NS",
+        "SYRMA.NS",
+        "KPITTECH.NS",
+        "SAMMAANCAP.NS",
+        "HSCL.NS",
+        "BRIGADE.NS",
+        "PIRAMALFIN.NS",
+        "FACT.NS",
+        "ECLERX.NS",
+        "CEMPRO.NS",
+        "ABDL.NS",
+        "ABREL.NS",
+        "TENNIND.NS",
+        "CONCORDBIO.NS",
+        "FIRSTCRY.NS",
+        "BLUESTARCO.NS",
+        "LTFOODS.NS",
+        "GALLANTT.NS",
+        "M&MFIN.NS",
+        "PWL.NS",
+        "BANDHANBNK.NS",
+        "ASTERDM.NS",
+        "CPPLUS.NS",
+        "BALKRISIND.NS",
+        "NETWEB.NS",
+        "MRPL.NS",
+        "INDGN.NS",
+        "SOBHA.NS",
+        "TEJASNET.NS",
+        "EMMVEE.NS",
+        "KEI.NS",
+        "TRAVELFOOD.NS",
+        "JYOTICNC.NS",
+        "COFORGE.NS",
+        "KARURVYSYA.NS",
+        "GVT&D.NS",
+        "ABFRL.NS"
+    ],
+    "metadata": [
+        {
+            "symbol": "ELECON.NS",
+            "price": 391.6,
+            "avg_volume": 528670,
+            "adr": 4.98,
+            "momentum_3m": -18.54
+        },
+        {
+            "symbol": "RAILTEL.NS",
+            "price": 266.96,
+            "avg_volume": 1331325,
+            "adr": 4.5,
+            "momentum_3m": -27.78
+        },
+        {
+            "symbol": "AEGISVOPAK.NS",
+            "price": 170.12,
+            "avg_volume": 1114651,
+            "adr": 5.7,
+            "momentum_3m": -32.55
+        },
+        {
+            "symbol": "TARIL.NS",
+            "price": 274.45,
+            "avg_volume": 3552607,
+            "adr": 5.04,
+            "momentum_3m": -3.79
+        },
+        {
+            "symbol": "CARTRADE.NS",
+            "price": 1739.4,
+            "avg_volume": 310928,
+            "adr": 4.5,
+            "momentum_3m": -38.53
+        },
+        {
+            "symbol": "ZENTEC.NS",
+            "price": 1379.3,
+            "avg_volume": 518224,
+            "adr": 4.22,
+            "momentum_3m": 1.67
+        },
+        {
+            "symbol": "ACMESOLAR.NS",
+            "price": 280.25,
+            "avg_volume": 2862101,
+            "adr": 5.83,
+            "momentum_3m": 17.94
+        },
+        {
+            "symbol": "MAZDOCK.NS",
+            "price": 2313.7,
+            "avg_volume": 3314042,
+            "adr": 5.2,
+            "momentum_3m": -6.29
+        },
+        {
+            "symbol": "RHIM.NS",
+            "price": 368.35,
+            "avg_volume": 244460,
+            "adr": 4.43,
+            "momentum_3m": -18.96
+        },
+        {
+            "symbol": "INDIGO.NS",
+            "price": 4312.5,
+            "avg_volume": 2239468,
+            "adr": 4.03,
+            "momentum_3m": -15.61
+        },
+        {
+            "symbol": "LATENTVIEW.NS",
+            "price": 300.6,
+            "avg_volume": 5094820,
+            "adr": 5.89,
+            "momentum_3m": -33.94
+        },
+        {
+            "symbol": "PARADEEP.NS",
+            "price": 115.95,
+            "avg_volume": 6064276,
+            "adr": 4.96,
+            "momentum_3m": -29.68
+        },
+        {
+            "symbol": "BELRISE.NS",
+            "price": 191.67,
+            "avg_volume": 6594815,
+            "adr": 4.35,
+            "momentum_3m": 4.13
+        },
+        {
+            "symbol": "COHANCE.NS",
+            "price": 301.7,
+            "avg_volume": 897865,
+            "adr": 4.82,
+            "momentum_3m": -42.92
+        },
+        {
+            "symbol": "RKFORGE.NS",
+            "price": 507.45,
+            "avg_volume": 384359,
+            "adr": 4.42,
+            "momentum_3m": -1.74
+        },
+        {
+            "symbol": "JUBLINGREA.NS",
+            "price": 594.2,
+            "avg_volume": 255155,
+            "adr": 4.61,
+            "momentum_3m": -15.64
+        },
+        {
+            "symbol": "BPCL.NS",
+            "price": 278.7,
+            "avg_volume": 16063819,
+            "adr": 4.03,
+            "momentum_3m": -24.89
+        },
+        {
+            "symbol": "BSOFT.NS",
+            "price": 364.75,
+            "avg_volume": 1250500,
+            "adr": 4.68,
+            "momentum_3m": -15.57
+        },
+        {
+            "symbol": "SCI.NS",
+            "price": 232.76,
+            "avg_volume": 3750219,
+            "adr": 5.0,
+            "momentum_3m": 2.78
+        },
+        {
+            "symbol": "ASHOKLEY.NS",
+            "price": 150.91,
+            "avg_volume": 28357592,
+            "adr": 4.2,
+            "momentum_3m": -18.37
+        },
+        {
+            "symbol": "AADHARHFC.NS",
+            "price": 453.75,
+            "avg_volume": 399800,
+            "adr": 4.32,
+            "momentum_3m": -5.74
+        },
+        {
+            "symbol": "BLUEJET.NS",
+            "price": 362.75,
+            "avg_volume": 637653,
+            "adr": 5.66,
+            "momentum_3m": -31.43
+        },
+        {
+            "symbol": "TEGA.NS",
+            "price": 1715.0,
+            "avg_volume": 177631,
+            "adr": 4.54,
+            "momentum_3m": -12.04
+        },
+        {
+            "symbol": "NATIONALUM.NS",
+            "price": 407.85,
+            "avg_volume": 18575301,
+            "adr": 4.64,
+            "momentum_3m": 31.26
+        },
+        {
+            "symbol": "GRAPHITE.NS",
+            "price": 637.05,
+            "avg_volume": 1813672,
+            "adr": 4.97,
+            "momentum_3m": -1.71
+        },
+        {
+            "symbol": "AMBER.NS",
+            "price": 6405.0,
+            "avg_volume": 371950,
+            "adr": 4.59,
+            "momentum_3m": -0.66
+        },
+        {
+            "symbol": "MCX.NS",
+            "price": 2549.0,
+            "avg_volume": 3936502,
+            "adr": 4.14,
+            "momentum_3m": 15.98
+        },
+        {
+            "symbol": "ZEEL.NS",
+            "price": 73.73,
+            "avg_volume": 12109151,
+            "adr": 4.49,
+            "momentum_3m": -18.51
+        },
+        {
+            "symbol": "PCBL.NS",
+            "price": 259.76,
+            "avg_volume": 5310528,
+            "adr": 5.52,
+            "momentum_3m": -12.32
+        },
+        {
+            "symbol": "PAYTM.NS",
+            "price": 1029.1,
+            "avg_volume": 2391812,
+            "adr": 4.04,
+            "momentum_3m": -20.33
+        },
+        {
+            "symbol": "IKS.NS",
+            "price": 1369.3,
+            "avg_volume": 273639,
+            "adr": 4.04,
+            "momentum_3m": -17.4
+        },
+        {
+            "symbol": "SONATSOFTW.NS",
+            "price": 232.31,
+            "avg_volume": 1091638,
+            "adr": 4.75,
+            "momentum_3m": -35.71
+        },
+        {
+            "symbol": "KIRLOSENG.NS",
+            "price": 1416.4,
+            "avg_volume": 384499,
+            "adr": 4.82,
+            "momentum_3m": 16.42
+        },
+        {
+            "symbol": "KEC.NS",
+            "price": 533.65,
+            "avg_volume": 920487,
+            "adr": 4.43,
+            "momentum_3m": -27.72
+        },
+        {
+            "symbol": "EMCURE.NS",
+            "price": 1552.2,
+            "avg_volume": 389544,
+            "adr": 4.84,
+            "momentum_3m": 13.76
+        },
+        {
+            "symbol": "SAILIFE.NS",
+            "price": 944.65,
+            "avg_volume": 635977,
+            "adr": 4.1,
+            "momentum_3m": 4.93
+        },
+        {
+            "symbol": "HEG.NS",
+            "price": 551.25,
+            "avg_volume": 4066936,
+            "adr": 4.66,
+            "momentum_3m": -11.68
+        },
+        {
+            "symbol": "GESHIP.NS",
+            "price": 1463.0,
+            "avg_volume": 731147,
+            "adr": 4.45,
+            "momentum_3m": 32.23
+        },
+        {
+            "symbol": "NCC.NS",
+            "price": 141.84,
+            "avg_volume": 3367404,
+            "adr": 4.2,
+            "momentum_3m": -12.24
+        },
+        {
+            "symbol": "JMFINANCIL.NS",
+            "price": 122.28,
+            "avg_volume": 3325299,
+            "adr": 4.98,
+            "momentum_3m": -17.13
+        },
+        {
+            "symbol": "SAPPHIRE.NS",
+            "price": 157.4,
+            "avg_volume": 1279223,
+            "adr": 5.93,
+            "momentum_3m": -40.08
+        },
+        {
+            "symbol": "NUVOCO.NS",
+            "price": 296.4,
+            "avg_volume": 408316,
+            "adr": 4.77,
+            "momentum_3m": -15.36
+        },
+        {
+            "symbol": "TMCV.NS",
+            "price": 391.3,
+            "avg_volume": 16038558,
+            "adr": 5.09,
+            "momentum_3m": -8.52
+        },
+        {
+            "symbol": "KPIL.NS",
+            "price": 1084.2,
+            "avg_volume": 205179,
+            "adr": 4.27,
+            "momentum_3m": -9.83
+        },
+        {
+            "symbol": "LTTS.NS",
+            "price": 3346.5,
+            "avg_volume": 327745,
+            "adr": 4.73,
+            "momentum_3m": -23.6
+        },
+        {
+            "symbol": "WAAREEENER.NS",
+            "price": 3084.7,
+            "avg_volume": 2076485,
+            "adr": 4.09,
+            "momentum_3m": 4.38
+        },
+        {
+            "symbol": "BDL.NS",
+            "price": 1224.6,
+            "avg_volume": 1981176,
+            "adr": 4.63,
+            "momentum_3m": -17.05
+        },
+        {
+            "symbol": "ASAHIINDIA.NS",
+            "price": 815.9,
+            "avg_volume": 744361,
+            "adr": 4.96,
+            "momentum_3m": -18.21
+        },
+        {
+            "symbol": "DEVYANI.NS",
+            "price": 99.98,
+            "avg_volume": 4068236,
+            "adr": 5.22,
+            "momentum_3m": -32.18
+        },
+        {
+            "symbol": "MOTILALOFS.NS",
+            "price": 704.85,
+            "avg_volume": 993723,
+            "adr": 4.08,
+            "momentum_3m": -15.58
+        },
+        {
+            "symbol": "SOLARINDS.NS",
+            "price": 13303.0,
+            "avg_volume": 210079,
+            "adr": 4.23,
+            "momentum_3m": 8.58
+        },
+        {
+            "symbol": "ABSLAMC.NS",
+            "price": 947.1,
+            "avg_volume": 792196,
+            "adr": 5.55,
+            "momentum_3m": 12.3
+        },
+        {
+            "symbol": "INTELLECT.NS",
+            "price": 652.3,
+            "avg_volume": 473151,
+            "adr": 4.22,
+            "momentum_3m": -31.17
+        },
+        {
+            "symbol": "CHOICEIN.NS",
+            "price": 640.85,
+            "avg_volume": 746547,
+            "adr": 4.06,
+            "momentum_3m": -23.54
+        },
+        {
+            "symbol": "SHRIRAMFIN.NS",
+            "price": 928.0,
+            "avg_volume": 10459319,
+            "adr": 4.44,
+            "momentum_3m": -8.99
+        },
+        {
+            "symbol": "POONAWALLA.NS",
+            "price": 395.5,
+            "avg_volume": 1137543,
+            "adr": 4.11,
+            "momentum_3m": -18.15
+        },
+        {
+            "symbol": "TBOTEK.NS",
+            "price": 1096.5,
+            "avg_volume": 143953,
+            "adr": 5.27,
+            "momentum_3m": -32.47
+        },
+        {
+            "symbol": "RVNL.NS",
+            "price": 261.55,
+            "avg_volume": 7489504,
+            "adr": 4.03,
+            "momentum_3m": -27.42
+        },
+        {
+            "symbol": "AIIL.NS",
+            "price": 424.25,
+            "avg_volume": 1383522,
+            "adr": 7.12,
+            "momentum_3m": -32.3
+        },
+        {
+            "symbol": "CHENNPETRO.NS",
+            "price": 980.85,
+            "avg_volume": 3601612,
+            "adr": 7.68,
+            "momentum_3m": 16.78
+        },
+        {
+            "symbol": "INOXWIND.NS",
+            "price": 80.95,
+            "avg_volume": 13333832,
+            "adr": 4.8,
+            "momentum_3m": -34.11
+        },
+        {
+            "symbol": "THELEELA.NS",
+            "price": 414.4,
+            "avg_volume": 255958,
+            "adr": 4.07,
+            "momentum_3m": -4.42
+        },
+        {
+            "symbol": "OLECTRA.NS",
+            "price": 1032.15,
+            "avg_volume": 1723671,
+            "adr": 5.64,
+            "momentum_3m": -14.03
+        },
+        {
+            "symbol": "AEGISLOG.NS",
+            "price": 597.35,
+            "avg_volume": 974622,
+            "adr": 4.9,
+            "momentum_3m": -16.76
+        },
+        {
+            "symbol": "NTPCGREEN.NS",
+            "price": 98.05,
+            "avg_volume": 28944589,
+            "adr": 5.08,
+            "momentum_3m": 2.98
+        },
+        {
+            "symbol": "HONASA.NS",
+            "price": 304.8,
+            "avg_volume": 693530,
+            "adr": 4.08,
+            "momentum_3m": 6.48
+        },
+        {
+            "symbol": "GODFRYPHLP.NS",
+            "price": 1926.5,
+            "avg_volume": 1055038,
+            "adr": 4.27,
+            "momentum_3m": -15.89
+        },
+        {
+            "symbol": "GSPL.NS",
+            "price": 237.73,
+            "avg_volume": 1275854,
+            "adr": 5.46,
+            "momentum_3m": -22.37
+        },
+        {
+            "symbol": "URBANCO.NS",
+            "price": 123.4,
+            "avg_volume": 15158758,
+            "adr": 5.19,
+            "momentum_3m": -6.05
+        },
+        {
+            "symbol": "NLCINDIA.NS",
+            "price": 275.0,
+            "avg_volume": 3015546,
+            "adr": 4.67,
+            "momentum_3m": 8.89
+        },
+        {
+            "symbol": "JKTYRE.NS",
+            "price": 392.9,
+            "avg_volume": 1438718,
+            "adr": 4.16,
+            "momentum_3m": -23.95
+        },
+        {
+            "symbol": "GODREJIND.NS",
+            "price": 842.55,
+            "avg_volume": 409736,
+            "adr": 4.71,
+            "momentum_3m": -18.21
+        },
+        {
+            "symbol": "MMTC.NS",
+            "price": 56.33,
+            "avg_volume": 9575225,
+            "adr": 5.54,
+            "momentum_3m": -14.27
+        },
+        {
+            "symbol": "DATAPATTNS.NS",
+            "price": 3136.7,
+            "avg_volume": 1137525,
+            "adr": 5.71,
+            "momentum_3m": 20.59
+        },
+        {
+            "symbol": "HINDPETRO.NS",
+            "price": 328.05,
+            "avg_volume": 12571212,
+            "adr": 4.73,
+            "momentum_3m": -34.21
+        },
+        {
+            "symbol": "JINDALSAW.NS",
+            "price": 195.3,
+            "avg_volume": 13988709,
+            "adr": 5.48,
+            "momentum_3m": 16.62
+        },
+        {
+            "symbol": "JBMA.NS",
+            "price": 560.75,
+            "avg_volume": 5648060,
+            "adr": 6.03,
+            "momentum_3m": -10.37
+        },
+        {
+            "symbol": "ATGL.NS",
+            "price": 523.45,
+            "avg_volume": 11204138,
+            "adr": 7.28,
+            "momentum_3m": -11.89
+        },
+        {
+            "symbol": "REDINGTON.NS",
+            "price": 207.27,
+            "avg_volume": 8281997,
+            "adr": 5.29,
+            "momentum_3m": -24.62
+        },
+        {
+            "symbol": "PINELABS.NS",
+            "price": 155.97,
+            "avg_volume": 1033216,
+            "adr": 4.65,
+            "momentum_3m": -33.66
+        },
+        {
+            "symbol": "AIAENG.NS",
+            "price": 3680.5,
+            "avg_volume": 100521,
+            "adr": 4.22,
+            "momentum_3m": -8.39
+        },
+        {
+            "symbol": "PRESTIGE.NS",
+            "price": 1183.2,
+            "avg_volume": 1065109,
+            "adr": 4.07,
+            "momentum_3m": -26.24
+        },
+        {
+            "symbol": "RAMCOCEM.NS",
+            "price": 937.0,
+            "avg_volume": 239391,
+            "adr": 4.56,
+            "momentum_3m": -11.32
+        },
+        {
+            "symbol": "EIHOTEL.NS",
+            "price": 303.6,
+            "avg_volume": 2351164,
+            "adr": 5.76,
+            "momentum_3m": -17.07
+        },
+        {
+            "symbol": "AWL.NS",
+            "price": 179.88,
+            "avg_volume": 6586587,
+            "adr": 4.63,
+            "momentum_3m": -24.88
+        },
+        {
+            "symbol": "DOMS.NS",
+            "price": 2324.9,
+            "avg_volume": 449180,
+            "adr": 4.92,
+            "momentum_3m": -10.64
+        },
+        {
+            "symbol": "CEATLTD.NS",
+            "price": 3347.1,
+            "avg_volume": 145330,
+            "adr": 4.27,
+            "momentum_3m": -11.33
+        },
+        {
+            "symbol": "GRAVITA.NS",
+            "price": 1381.3,
+            "avg_volume": 365924,
+            "adr": 4.48,
+            "momentum_3m": -25.68
+        },
+        {
+            "symbol": "SUNTV.NS",
+            "price": 588.25,
+            "avg_volume": 542357,
+            "adr": 4.9,
+            "momentum_3m": 0.82
+        },
+        {
+            "symbol": "DIXON.NS",
+            "price": 10008.0,
+            "avg_volume": 772542,
+            "adr": 4.15,
+            "momentum_3m": -17.23
+        },
+        {
+            "symbol": "ZYDUSWELL.NS",
+            "price": 509.35,
+            "avg_volume": 5516133,
+            "adr": 5.95,
+            "momentum_3m": 9.71
+        },
+        {
+            "symbol": "KAYNES.NS",
+            "price": 3706.5,
+            "avg_volume": 1453845,
+            "adr": 4.82,
+            "momentum_3m": -6.01
+        },
+        {
+            "symbol": "GRSE.NS",
+            "price": 2259.5,
+            "avg_volume": 1884870,
+            "adr": 5.57,
+            "momentum_3m": -7.22
+        },
+        {
+            "symbol": "HINDCOPPER.NS",
+            "price": 503.35,
+            "avg_volume": 12591023,
+            "adr": 4.98,
+            "momentum_3m": -3.54
+        },
+        {
+            "symbol": "PFC.NS",
+            "price": 405.9,
+            "avg_volume": 9468920,
+            "adr": 4.13,
+            "momentum_3m": 13.77
+        },
+        {
+            "symbol": "ANANTRAJ.NS",
+            "price": 455.55,
+            "avg_volume": 2272223,
+            "adr": 4.41,
+            "momentum_3m": -17.55
+        },
+        {
+            "symbol": "PETRONET.NS",
+            "price": 254.52,
+            "avg_volume": 7067321,
+            "adr": 4.04,
+            "momentum_3m": -11.66
+        },
+        {
+            "symbol": "GPIL.NS",
+            "price": 275.3,
+            "avg_volume": 2474265,
+            "adr": 4.32,
+            "momentum_3m": 3.26
+        },
+        {
+            "symbol": "SCHNEIDER.NS",
+            "price": 926.25,
+            "avg_volume": 107833,
+            "adr": 4.79,
+            "momentum_3m": 29.42
+        },
+        {
+            "symbol": "GABRIEL.NS",
+            "price": 888.45,
+            "avg_volume": 360313,
+            "adr": 4.49,
+            "momentum_3m": -14.48
+        },
+        {
+            "symbol": "PREMIERENE.NS",
+            "price": 925.95,
+            "avg_volume": 2657008,
+            "adr": 4.13,
+            "momentum_3m": 9.3
+        },
+        {
+            "symbol": "ITI.NS",
+            "price": 258.22,
+            "avg_volume": 8830283,
+            "adr": 6.11,
+            "momentum_3m": -16.93
+        },
+        {
+            "symbol": "LLOYDSME.NS",
+            "price": 1436.7,
+            "avg_volume": 814409,
+            "adr": 4.78,
+            "momentum_3m": 6.23
+        },
+        {
+            "symbol": "ACUTAAS.NS",
+            "price": 2212.4,
+            "avg_volume": 667478,
+            "adr": 6.24,
+            "momentum_3m": 29.77
+        },
+        {
+            "symbol": "BALRAMCHIN.NS",
+            "price": 485.4,
+            "avg_volume": 1093680,
+            "adr": 4.7,
+            "momentum_3m": 10.75
+        },
+        {
+            "symbol": "MAPMYINDIA.NS",
+            "price": 879.65,
+            "avg_volume": 213521,
+            "adr": 4.94,
+            "momentum_3m": -49.17
+        },
+        {
+            "symbol": "KAJARIACER.NS",
+            "price": 989.45,
+            "avg_volume": 338487,
+            "adr": 4.42,
+            "momentum_3m": 2.76
+        },
+        {
+            "symbol": "ICICIAMC.NS",
+            "price": 2905.5,
+            "avg_volume": 461540,
+            "adr": 4.07,
+            "momentum_3m": 10.98
+        },
+        {
+            "symbol": "HBLENGINE.NS",
+            "price": 676.05,
+            "avg_volume": 1355646,
+            "adr": 4.52,
+            "momentum_3m": -26.85
+        },
+        {
+            "symbol": "JUBLPHARMA.NS",
+            "price": 854.25,
+            "avg_volume": 202085,
+            "adr": 4.35,
+            "momentum_3m": -19.27
+        },
+        {
+            "symbol": "MINDACORP.NS",
+            "price": 509.2,
+            "avg_volume": 268492,
+            "adr": 4.05,
+            "momentum_3m": -12.85
+        },
+        {
+            "symbol": "COROMANDEL.NS",
+            "price": 1892.2,
+            "avg_volume": 420018,
+            "adr": 4.3,
+            "momentum_3m": -16.06
+        },
+        {
+            "symbol": "FINCABLES.NS",
+            "price": 809.2,
+            "avg_volume": 600149,
+            "adr": 4.74,
+            "momentum_3m": 2.91
+        },
+        {
+            "symbol": "IRCON.NS",
+            "price": 125.94,
+            "avg_volume": 7571076,
+            "adr": 5.02,
+            "momentum_3m": -28.68
+        },
+        {
+            "symbol": "SPLPETRO.NS",
+            "price": 734.55,
+            "avg_volume": 264966,
+            "adr": 5.54,
+            "momentum_3m": 14.24
+        },
+        {
+            "symbol": "ADANIPOWER.NS",
+            "price": 163.26,
+            "avg_volume": 39145727,
+            "adr": 4.13,
+            "momentum_3m": 9.75
+        },
+        {
+            "symbol": "ABLBL.NS",
+            "price": 96.08,
+            "avg_volume": 3281638,
+            "adr": 4.23,
+            "momentum_3m": -24.69
+        },
+        {
+            "symbol": "JAINREC.NS",
+            "price": 450.35,
+            "avg_volume": 1572313,
+            "adr": 4.45,
+            "momentum_3m": 8.41
+        },
+        {
+            "symbol": "BEML.NS",
+            "price": 1509.6,
+            "avg_volume": 314518,
+            "adr": 4.6,
+            "momentum_3m": -18.17
+        },
+        {
+            "symbol": "APARINDS.NS",
+            "price": 9935.0,
+            "avg_volume": 118741,
+            "adr": 5.24,
+            "momentum_3m": 19.3
+        },
+        {
+            "symbol": "MAHABANK.NS",
+            "price": 66.59,
+            "avg_volume": 19929305,
+            "adr": 4.12,
+            "momentum_3m": 6.24
+        },
+        {
+            "symbol": "COCHINSHIP.NS",
+            "price": 1333.9,
+            "avg_volume": 1695963,
+            "adr": 4.85,
+            "momentum_3m": -17.6
+        },
+        {
+            "symbol": "POLYMED.NS",
+            "price": 1370.1,
+            "avg_volume": 206350,
+            "adr": 4.94,
+            "momentum_3m": -21.37
+        },
+        {
+            "symbol": "JSL.NS",
+            "price": 725.0,
+            "avg_volume": 893374,
+            "adr": 4.23,
+            "momentum_3m": -14.98
+        },
+        {
+            "symbol": "HFCL.NS",
+            "price": 72.88,
+            "avg_volume": 23125127,
+            "adr": 4.82,
+            "momentum_3m": 5.75
+        },
+        {
+            "symbol": "CYIENT.NS",
+            "price": 813.15,
+            "avg_volume": 329563,
+            "adr": 4.09,
+            "momentum_3m": -26.68
+        },
+        {
+            "symbol": "SAREGAMA.NS",
+            "price": 319.0,
+            "avg_volume": 456264,
+            "adr": 4.38,
+            "momentum_3m": -9.12
+        },
+        {
+            "symbol": "HEXT.NS",
+            "price": 450.1,
+            "avg_volume": 1133035,
+            "adr": 4.66,
+            "momentum_3m": -41.21
+        },
+        {
+            "symbol": "ONESOURCE.NS",
+            "price": 1408.1,
+            "avg_volume": 403583,
+            "adr": 6.66,
+            "momentum_3m": -21.23
+        },
+        {
+            "symbol": "MGL.NS",
+            "price": 960.55,
+            "avg_volume": 575643,
+            "adr": 4.1,
+            "momentum_3m": -13.96
+        },
+        {
+            "symbol": "CLEAN.NS",
+            "price": 694.6,
+            "avg_volume": 239398,
+            "adr": 4.13,
+            "momentum_3m": -18.94
+        },
+        {
+            "symbol": "MEESHO.NS",
+            "price": 150.45,
+            "avg_volume": 7483766,
+            "adr": 5.31,
+            "momentum_3m": -17.14
+        },
+        {
+            "symbol": "CGCL.NS",
+            "price": 165.44,
+            "avg_volume": 2363131,
+            "adr": 4.46,
+            "momentum_3m": -10.77
+        },
+        {
+            "symbol": "SWANCORP.NS",
+            "price": 313.75,
+            "avg_volume": 1386248,
+            "adr": 5.29,
+            "momentum_3m": -32.66
+        },
+        {
+            "symbol": "ENGINERSIN.NS",
+            "price": 202.26,
+            "avg_volume": 3371547,
+            "adr": 4.29,
+            "momentum_3m": 0.52
+        },
+        {
+            "symbol": "OIL.NS",
+            "price": 472.2,
+            "avg_volume": 5727711,
+            "adr": 4.0,
+            "momentum_3m": 12.13
+        },
+        {
+            "symbol": "DEEPAKFERT.NS",
+            "price": 983.55,
+            "avg_volume": 746435,
+            "adr": 5.07,
+            "momentum_3m": -20.9
+        },
+        {
+            "symbol": "ITCHOTELS.NS",
+            "price": 149.7,
+            "avg_volume": 7136730,
+            "adr": 4.32,
+            "momentum_3m": -24.18
+        },
+        {
+            "symbol": "VOLTAS.NS",
+            "price": 1252.0,
+            "avg_volume": 1213813,
+            "adr": 4.25,
+            "momentum_3m": -9.56
+        },
+        {
+            "symbol": "IGIL.NS",
+            "price": 322.05,
+            "avg_volume": 725206,
+            "adr": 4.37,
+            "momentum_3m": -3.12
+        },
+        {
+            "symbol": "NEWGEN.NS",
+            "price": 442.85,
+            "avg_volume": 1574972,
+            "adr": 4.48,
+            "momentum_3m": -46.96
+        },
+        {
+            "symbol": "LENSKART.NS",
+            "price": 503.05,
+            "avg_volume": 2189464,
+            "adr": 4.31,
+            "momentum_3m": 14.72
+        },
+        {
+            "symbol": "VMM.NS",
+            "price": 113.74,
+            "avg_volume": 17856294,
+            "adr": 4.4,
+            "momentum_3m": -16.25
+        },
+        {
+            "symbol": "CHOLAHLDNG.NS",
+            "price": 1427.8,
+            "avg_volume": 265388,
+            "adr": 4.72,
+            "momentum_3m": -24.0
+        },
+        {
+            "symbol": "FSL.NS",
+            "price": 223.58,
+            "avg_volume": 1475699,
+            "adr": 4.82,
+            "momentum_3m": -31.6
+        },
+        {
+            "symbol": "NBCC.NS",
+            "price": 84.34,
+            "avg_volume": 12323044,
+            "adr": 4.04,
+            "momentum_3m": -30.84
+        },
+        {
+            "symbol": "ANGELONE.NS",
+            "price": 246.05,
+            "avg_volume": 8648147,
+            "adr": 4.18,
+            "momentum_3m": 5.82
+        },
+        {
+            "symbol": "AARTIIND.NS",
+            "price": 404.2,
+            "avg_volume": 968178,
+            "adr": 4.06,
+            "momentum_3m": 7.59
+        },
+        {
+            "symbol": "WOCKPHARMA.NS",
+            "price": 1273.9,
+            "avg_volume": 689221,
+            "adr": 4.66,
+            "momentum_3m": -10.47
+        },
+        {
+            "symbol": "FIVESTAR.NS",
+            "price": 356.95,
+            "avg_volume": 1600964,
+            "adr": 4.73,
+            "momentum_3m": -33.2
+        },
+        {
+            "symbol": "CANFINHOME.NS",
+            "price": 814.2,
+            "avg_volume": 153663,
+            "adr": 4.59,
+            "momentum_3m": -12.59
+        },
+        {
+            "symbol": "ADANIENSOL.NS",
+            "price": 991.35,
+            "avg_volume": 1915157,
+            "adr": 4.09,
+            "momentum_3m": -3.5
+        },
+        {
+            "symbol": "GMDCLTD.NS",
+            "price": 597.1,
+            "avg_volume": 4122296,
+            "adr": 4.24,
+            "momentum_3m": -0.4
+        },
+        {
+            "symbol": "BATAINDIA.NS",
+            "price": 666.5,
+            "avg_volume": 281304,
+            "adr": 4.04,
+            "momentum_3m": -29.6
+        },
+        {
+            "symbol": "RADICO.NS",
+            "price": 2684.7,
+            "avg_volume": 527553,
+            "adr": 4.26,
+            "momentum_3m": -18.61
+        },
+        {
+            "symbol": "TITAGARH.NS",
+            "price": 639.35,
+            "avg_volume": 821051,
+            "adr": 4.25,
+            "momentum_3m": -27.49
+        },
+        {
+            "symbol": "BLS.NS",
+            "price": 268.33,
+            "avg_volume": 7930192,
+            "adr": 5.66,
+            "momentum_3m": -14.77
+        },
+        {
+            "symbol": "KPRMILL.NS",
+            "price": 840.8,
+            "avg_volume": 683848,
+            "adr": 4.24,
+            "momentum_3m": -7.59
+        },
+        {
+            "symbol": "ADANIGREEN.NS",
+            "price": 921.1,
+            "avg_volume": 4216910,
+            "adr": 4.25,
+            "momentum_3m": -10.22
+        },
+        {
+            "symbol": "WELSPUNLIV.NS",
+            "price": 117.76,
+            "avg_volume": 1906809,
+            "adr": 4.42,
+            "momentum_3m": -10.82
+        },
+        {
+            "symbol": "FORCEMOT.NS",
+            "price": 21183.0,
+            "avg_volume": 108269,
+            "adr": 5.64,
+            "momentum_3m": 1.55
+        },
+        {
+            "symbol": "SIGNATURE.NS",
+            "price": 780.3,
+            "avg_volume": 450475,
+            "adr": 4.8,
+            "momentum_3m": -30.79
+        },
+        {
+            "symbol": "GROWW.NS",
+            "price": 168.68,
+            "avg_volume": 19268231,
+            "adr": 4.04,
+            "momentum_3m": 8.62
+        },
+        {
+            "symbol": "CUB.NS",
+            "price": 249.91,
+            "avg_volume": 3184328,
+            "adr": 5.1,
+            "momentum_3m": -13.53
+        },
+        {
+            "symbol": "LODHA.NS",
+            "price": 710.25,
+            "avg_volume": 3828280,
+            "adr": 4.38,
+            "momentum_3m": -33.79
+        },
+        {
+            "symbol": "SWIGGY.NS",
+            "price": 271.8,
+            "avg_volume": 12676968,
+            "adr": 4.38,
+            "momentum_3m": -30.43
+        },
+        {
+            "symbol": "SAIL.NS",
+            "price": 160.44,
+            "avg_volume": 23350430,
+            "adr": 4.48,
+            "momentum_3m": 8.08
+        },
+        {
+            "symbol": "PGEL.NS",
+            "price": 451.65,
+            "avg_volume": 5270664,
+            "adr": 5.52,
+            "momentum_3m": -21.99
+        },
+        {
+            "symbol": "JWL.NS",
+            "price": 258.22,
+            "avg_volume": 8587899,
+            "adr": 6.16,
+            "momentum_3m": -23.4
+        },
+        {
+            "symbol": "IDBI.NS",
+            "price": 70.06,
+            "avg_volume": 29855044,
+            "adr": 5.55,
+            "momentum_3m": -32.48
+        },
+        {
+            "symbol": "J&KBANK.NS",
+            "price": 115.8,
+            "avg_volume": 7408443,
+            "adr": 5.01,
+            "momentum_3m": 14.61
+        },
+        {
+            "symbol": "IFCI.NS",
+            "price": 52.92,
+            "avg_volume": 24037721,
+            "adr": 4.38,
+            "momentum_3m": -0.28
+        },
+        {
+            "symbol": "ATHERENERG.NS",
+            "price": 784.8,
+            "avg_volume": 2632136,
+            "adr": 5.01,
+            "momentum_3m": 6.27
+        },
+        {
+            "symbol": "TECHNOE.NS",
+            "price": 1060.65,
+            "avg_volume": 224116,
+            "adr": 4.27,
+            "momentum_3m": -0.35
+        },
+        {
+            "symbol": "SYRMA.NS",
+            "price": 808.5,
+            "avg_volume": 1330567,
+            "adr": 4.51,
+            "momentum_3m": 12.39
+        },
+        {
+            "symbol": "KPITTECH.NS",
+            "price": 694.85,
+            "avg_volume": 2137043,
+            "adr": 4.3,
+            "momentum_3m": -40.13
+        },
+        {
+            "symbol": "SAMMAANCAP.NS",
+            "price": 147.4,
+            "avg_volume": 18213096,
+            "adr": 4.03,
+            "momentum_3m": 2.21
+        },
+        {
+            "symbol": "HSCL.NS",
+            "price": 451.5,
+            "avg_volume": 2426234,
+            "adr": 4.82,
+            "momentum_3m": -6.98
+        },
+        {
+            "symbol": "BRIGADE.NS",
+            "price": 690.85,
+            "avg_volume": 1507235,
+            "adr": 4.58,
+            "momentum_3m": -22.95
+        },
+        {
+            "symbol": "PIRAMALFIN.NS",
+            "price": 1723.0,
+            "avg_volume": 438394,
+            "adr": 4.34,
+            "momentum_3m": 4.87
+        },
+        {
+            "symbol": "FACT.NS",
+            "price": 790.6,
+            "avg_volume": 2837408,
+            "adr": 6.65,
+            "momentum_3m": -12.51
+        },
+        {
+            "symbol": "ECLERX.NS",
+            "price": 1503.4,
+            "avg_volume": 222377,
+            "adr": 5.13,
+            "momentum_3m": -37.64
+        },
+        {
+            "symbol": "CEMPRO.NS",
+            "price": 553.35,
+            "avg_volume": 372751,
+            "adr": 4.76,
+            "momentum_3m": -29.81
+        },
+        {
+            "symbol": "ABDL.NS",
+            "price": 427.5,
+            "avg_volume": 546208,
+            "adr": 4.81,
+            "momentum_3m": -28.89
+        },
+        {
+            "symbol": "ABREL.NS",
+            "price": 1178.7,
+            "avg_volume": 284077,
+            "adr": 4.96,
+            "momentum_3m": -29.86
+        },
+        {
+            "symbol": "TENNIND.NS",
+            "price": 528.65,
+            "avg_volume": 533560,
+            "adr": 4.31,
+            "momentum_3m": 4.68
+        },
+        {
+            "symbol": "CONCORDBIO.NS",
+            "price": 1029.7,
+            "avg_volume": 186903,
+            "adr": 4.69,
+            "momentum_3m": -22.94
+        },
+        {
+            "symbol": "FIRSTCRY.NS",
+            "price": 226.7,
+            "avg_volume": 7782024,
+            "adr": 5.51,
+            "momentum_3m": -21.02
+        },
+        {
+            "symbol": "BLUESTARCO.NS",
+            "price": 1565.4,
+            "avg_volume": 767598,
+            "adr": 4.71,
+            "momentum_3m": -11.67
+        },
+        {
+            "symbol": "LTFOODS.NS",
+            "price": 383.85,
+            "avg_volume": 6618036,
+            "adr": 5.78,
+            "momentum_3m": -1.17
+        },
+        {
+            "symbol": "GALLANTT.NS",
+            "price": 564.6,
+            "avg_volume": 130959,
+            "adr": 4.57,
+            "momentum_3m": 4.93
+        },
+        {
+            "symbol": "M&MFIN.NS",
+            "price": 281.25,
+            "avg_volume": 1823532,
+            "adr": 4.07,
+            "momentum_3m": -30.41
+        },
+        {
+            "symbol": "PWL.NS",
+            "price": 93.03,
+            "avg_volume": 9183243,
+            "adr": 5.88,
+            "momentum_3m": -29.95
+        },
+        {
+            "symbol": "BANDHANBNK.NS",
+            "price": 152.58,
+            "avg_volume": 11269890,
+            "adr": 4.35,
+            "momentum_3m": 5.83
+        },
+        {
+            "symbol": "ASTERDM.NS",
+            "price": 670.6,
+            "avg_volume": 933915,
+            "adr": 4.48,
+            "momentum_3m": 11.02
+        },
+        {
+            "symbol": "CPPLUS.NS",
+            "price": 1815.9,
+            "avg_volume": 331510,
+            "adr": 4.92,
+            "momentum_3m": 19.31
+        },
+        {
+            "symbol": "BALKRISIND.NS",
+            "price": 2128.1,
+            "avg_volume": 149831,
+            "adr": 4.17,
+            "momentum_3m": -7.97
+        },
+        {
+            "symbol": "NETWEB.NS",
+            "price": 3225.7,
+            "avg_volume": 1455421,
+            "adr": 4.4,
+            "momentum_3m": 4.87
+        },
+        {
+            "symbol": "MRPL.NS",
+            "price": 178.94,
+            "avg_volume": 26710578,
+            "adr": 7.72,
+            "momentum_3m": 19.05
+        },
+        {
+            "symbol": "INDGN.NS",
+            "price": 470.25,
+            "avg_volume": 454542,
+            "adr": 4.04,
+            "momentum_3m": -9.58
+        },
+        {
+            "symbol": "SOBHA.NS",
+            "price": 1220.0,
+            "avg_volume": 138877,
+            "adr": 4.36,
+            "momentum_3m": -16.4
+        },
+        {
+            "symbol": "TEJASNET.NS",
+            "price": 424.75,
+            "avg_volume": 12121893,
+            "adr": 6.29,
+            "momentum_3m": -6.05
+        },
+        {
+            "symbol": "EMMVEE.NS",
+            "price": 223.73,
+            "avg_volume": 2030356,
+            "adr": 5.82,
+            "momentum_3m": 18.46
+        },
+        {
+            "symbol": "KEI.NS",
+            "price": 4123.1,
+            "avg_volume": 504133,
+            "adr": 4.14,
+            "momentum_3m": -8.56
+        },
+        {
+            "symbol": "TRAVELFOOD.NS",
+            "price": 1270.3,
+            "avg_volume": 122851,
+            "adr": 4.19,
+            "momentum_3m": 9.62
+        },
+        {
+            "symbol": "JYOTICNC.NS",
+            "price": 766.85,
+            "avg_volume": 1029491,
+            "adr": 4.55,
+            "momentum_3m": -22.77
+        },
+        {
+            "symbol": "COFORGE.NS",
+            "price": 1220.2,
+            "avg_volume": 3425647,
+            "adr": 4.41,
+            "momentum_3m": -26.13
+        },
+        {
+            "symbol": "KARURVYSYA.NS",
+            "price": 269.45,
+            "avg_volume": 3771000,
+            "adr": 4.24,
+            "momentum_3m": 0.02
+        },
+        {
+            "symbol": "GVT&D.NS",
+            "price": 3723.1,
+            "avg_volume": 661357,
+            "adr": 5.64,
+            "momentum_3m": 17.65
+        },
+        {
+            "symbol": "ABFRL.NS",
+            "price": 58.94,
+            "avg_volume": 6764102,
+            "adr": 4.71,
+            "momentum_3m": -22.55
+        }
+    ]
+}

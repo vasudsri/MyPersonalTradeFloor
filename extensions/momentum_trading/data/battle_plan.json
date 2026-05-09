@@ -1,0 +1,551 @@
+{
+    "date": "2026-04-06",
+    "timestamp": "2026-04-06T22:02:51.839902",
+    "market_regime": {
+        "index": "NIFTY 50",
+        "price": 0,
+        "regime": "SIDEWAYS_CHOPPY",
+        "recommendation": {
+            "primary": "MEAN_REVERSION",
+            "secondary": "NONE",
+            "risk_multiplier": 0.8,
+            "rationale": "Range-bound market. Buy support, sell resistance. Avoid breakouts."
+        },
+        "is_bullish": false
+    },
+    "scan_summary": {
+        "total_setups": 35,
+        "momentum_count": 0,
+        "reversion_count": 35,
+        "fundamental_count": 0,
+        "primary_strategy": "MEAN_REVERSION",
+        "universe_size": 510
+    },
+    "scanner_data": [
+        {
+            "symbol": "COFORGE.NS",
+            "rs_rating": 98,
+            "status": "LEADING",
+            "trend": "BULLISH",
+            "setup_type": "REVERSION_SELL",
+            "all_setups": [
+                "REVERSION_SELL"
+            ],
+            "is_setup": true,
+            "entry": 1220.0,
+            "stop": 1193.1,
+            "target": 1300.7,
+            "adr": 4.41
+        },
+        {
+            "symbol": "M&MFIN.NS",
+            "rs_rating": 93,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 281.25,
+            "stop": 275.53,
+            "target": 298.42,
+            "adr": 4.07
+        },
+        {
+            "symbol": "BANDHANBNK.NS",
+            "rs_rating": 93,
+            "status": "LEADING",
+            "trend": "BULLISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 151.71,
+            "stop": 148.41,
+            "target": 161.61,
+            "adr": 4.35
+        },
+        {
+            "symbol": "BLUESTARCO.NS",
+            "rs_rating": 91,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 1564.7,
+            "stop": 1527.85,
+            "target": 1675.25,
+            "adr": 4.71
+        },
+        {
+            "symbol": "CONCORDBIO.NS",
+            "rs_rating": 90,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 1024.4,
+            "stop": 1000.38,
+            "target": 1096.47,
+            "adr": 4.69
+        },
+        {
+            "symbol": "IDBI.NS",
+            "rs_rating": 83,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 70.06,
+            "stop": 68.12,
+            "target": 75.89,
+            "adr": 5.55
+        },
+        {
+            "symbol": "PGEL.NS",
+            "rs_rating": 82,
+            "status": "LEADING",
+            "trend": "BULLISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 451.0,
+            "stop": 438.55,
+            "target": 488.34,
+            "adr": 5.52
+        },
+        {
+            "symbol": "LODHA.NS",
+            "rs_rating": 80,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 710.25,
+            "stop": 694.7,
+            "target": 756.91,
+            "adr": 4.38
+        },
+        {
+            "symbol": "ADANIGREEN.NS",
+            "rs_rating": 78,
+            "status": "LAGGING",
+            "trend": "BULLISH",
+            "setup_type": "REVERSION_SELL",
+            "all_setups": [
+                "REVERSION_SELL"
+            ],
+            "is_setup": true,
+            "entry": 923.4,
+            "stop": 903.78,
+            "target": 982.27,
+            "adr": 4.25
+        },
+        {
+            "symbol": "KPRMILL.NS",
+            "rs_rating": 77,
+            "status": "LAGGING",
+            "trend": "BULLISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 843.6,
+            "stop": 825.72,
+            "target": 897.25,
+            "adr": 4.24
+        },
+        {
+            "symbol": "ANGELONE.NS",
+            "rs_rating": 71,
+            "status": "LAGGING",
+            "trend": "BULLISH",
+            "setup_type": "REVERSION_SELL",
+            "all_setups": [
+                "REVERSION_SELL"
+            ],
+            "is_setup": true,
+            "entry": 245.26,
+            "stop": 240.13,
+            "target": 260.64,
+            "adr": 4.18
+        },
+        {
+            "symbol": "VOLTAS.NS",
+            "rs_rating": 68,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 1253.8,
+            "stop": 1227.16,
+            "target": 1333.73,
+            "adr": 4.25
+        },
+        {
+            "symbol": "SWANCORP.NS",
+            "rs_rating": 65,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 314.5,
+            "stop": 306.18,
+            "target": 339.46,
+            "adr": 5.29
+        },
+        {
+            "symbol": "MGL.NS",
+            "rs_rating": 63,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 960.55,
+            "stop": 940.86,
+            "target": 1019.62,
+            "adr": 4.1
+        },
+        {
+            "symbol": "CYIENT.NS",
+            "rs_rating": 61,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 813.0,
+            "stop": 796.37,
+            "target": 862.88,
+            "adr": 4.09
+        },
+        {
+            "symbol": "ADANIPOWER.NS",
+            "rs_rating": 57,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_SELL",
+            "all_setups": [
+                "REVERSION_SELL"
+            ],
+            "is_setup": true,
+            "entry": 163.26,
+            "stop": 159.89,
+            "target": 173.37,
+            "adr": 4.13
+        },
+        {
+            "symbol": "LLOYDSME.NS",
+            "rs_rating": 51,
+            "status": "LAGGING",
+            "trend": "BULLISH",
+            "setup_type": "REVERSION_SELL",
+            "all_setups": [
+                "REVERSION_SELL"
+            ],
+            "is_setup": true,
+            "entry": 1434.0,
+            "stop": 1399.73,
+            "target": 1536.82,
+            "adr": 4.78
+        },
+        {
+            "symbol": "PREMIERENE.NS",
+            "rs_rating": 50,
+            "status": "LAGGING",
+            "trend": "BULLISH",
+            "setup_type": "REVERSION_SELL",
+            "all_setups": [
+                "REVERSION_SELL"
+            ],
+            "is_setup": true,
+            "entry": 921.15,
+            "stop": 902.13,
+            "target": 978.22,
+            "adr": 4.13
+        },
+        {
+            "symbol": "PETRONET.NS",
+            "rs_rating": 48,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 254.52,
+            "stop": 249.38,
+            "target": 269.94,
+            "adr": 4.04
+        },
+        {
+            "symbol": "ZYDUSWELL.NS",
+            "rs_rating": 45,
+            "status": "LAGGING",
+            "trend": "BULLISH",
+            "setup_type": "REVERSION_SELL",
+            "all_setups": [
+                "REVERSION_SELL"
+            ],
+            "is_setup": true,
+            "entry": 513.15,
+            "stop": 497.88,
+            "target": 558.95,
+            "adr": 5.95
+        },
+        {
+            "symbol": "CEATLTD.NS",
+            "rs_rating": 43,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 3366.0,
+            "stop": 3294.14,
+            "target": 3581.59,
+            "adr": 4.27
+        },
+        {
+            "symbol": "REDINGTON.NS",
+            "rs_rating": 39,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 207.27,
+            "stop": 201.79,
+            "target": 223.72,
+            "adr": 5.29
+        },
+        {
+            "symbol": "ATGL.NS",
+            "rs_rating": 38,
+            "status": "LAGGING",
+            "trend": "BULLISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 523.5,
+            "stop": 504.44,
+            "target": 580.67,
+            "adr": 7.28
+        },
+        {
+            "symbol": "HINDPETRO.NS",
+            "rs_rating": 37,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 328.05,
+            "stop": 320.29,
+            "target": 351.33,
+            "adr": 4.73
+        },
+        {
+            "symbol": "GSPL.NS",
+            "rs_rating": 34,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 238.0,
+            "stop": 231.5,
+            "target": 257.49,
+            "adr": 5.46
+        },
+        {
+            "symbol": "DEVYANI.NS",
+            "rs_rating": 24,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 99.98,
+            "stop": 97.37,
+            "target": 107.81,
+            "adr": 5.22
+        },
+        {
+            "symbol": "WAAREEENER.NS",
+            "rs_rating": 22,
+            "status": "LAGGING",
+            "trend": "BULLISH",
+            "setup_type": "REVERSION_SELL",
+            "all_setups": [
+                "REVERSION_SELL"
+            ],
+            "is_setup": true,
+            "entry": 3081.6,
+            "stop": 3018.58,
+            "target": 3270.66,
+            "adr": 4.09
+        },
+        {
+            "symbol": "ASHOKLEY.NS",
+            "rs_rating": 9,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 150.7,
+            "stop": 147.54,
+            "target": 160.19,
+            "adr": 4.2
+        },
+        {
+            "symbol": "BPCL.NS",
+            "rs_rating": 7,
+            "status": "LAGGING",
+            "trend": "BEARISH",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 278.1,
+            "stop": 272.5,
+            "target": 294.91,
+            "adr": 4.03
+        },
+        {
+            "symbol": "ACMESOLAR.NS",
+            "rs_rating": 3,
+            "status": "LAGGING",
+            "trend": "BULLISH",
+            "setup_type": "REVERSION_SELL",
+            "all_setups": [
+                "REVERSION_SELL"
+            ],
+            "is_setup": true,
+            "entry": 280.25,
+            "stop": 272.08,
+            "target": 304.76,
+            "adr": 5.83
+        },
+        {
+            "symbol": "GROWW.NS",
+            "rs_rating": 0,
+            "status": "UNKNOWN",
+            "trend": "UNKNOWN",
+            "setup_type": "REVERSION_SELL",
+            "all_setups": [
+                "REVERSION_SELL"
+            ],
+            "is_setup": true,
+            "entry": 169.09,
+            "stop": 165.67,
+            "target": 179.34,
+            "adr": 4.04
+        },
+        {
+            "symbol": "CPPLUS.NS",
+            "rs_rating": 0,
+            "status": "UNKNOWN",
+            "trend": "UNKNOWN",
+            "setup_type": "REVERSION_SELL",
+            "all_setups": [
+                "REVERSION_SELL"
+            ],
+            "is_setup": true,
+            "entry": 1815.9,
+            "stop": 1771.23,
+            "target": 1949.91,
+            "adr": 4.92
+        },
+        {
+            "symbol": "PIRAMALFIN.NS",
+            "rs_rating": 0,
+            "status": "UNKNOWN",
+            "trend": "UNKNOWN",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 1723.0,
+            "stop": 1685.61,
+            "target": 1835.17,
+            "adr": 4.34
+        },
+        {
+            "symbol": "AEGISVOPAK.NS",
+            "rs_rating": 0,
+            "status": "UNKNOWN",
+            "trend": "UNKNOWN",
+            "setup_type": "REVERSION_BUY",
+            "all_setups": [
+                "REVERSION_BUY"
+            ],
+            "is_setup": true,
+            "entry": 170.12,
+            "stop": 165.27,
+            "target": 184.67,
+            "adr": 5.7
+        },
+        {
+            "symbol": "PWL.NS",
+            "rs_rating": 0,
+            "status": "UNKNOWN",
+            "trend": "UNKNOWN",
+            "setup_type": "REVERSION_SELL",
+            "all_setups": [
+                "REVERSION_SELL"
+            ],
+            "is_setup": true,
+            "entry": 92.55,
+            "stop": 89.83,
+            "target": 100.71,
+            "adr": 5.88
+        }
+    ]
+}
