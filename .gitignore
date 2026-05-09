@@ -1,0 +1,86 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Node (for desktop/frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build outputs
+dist/
+target/
+*.o
+*.a
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+.cache/
+
+# Market data - ignore large data files but keep structure
+extensions/momentum_trading/data/nse_ingestion/
+extensions/momentum_trading/data/*.parquet
+extensions/momentum_trading/data/*.csv
+!extensions/momentum_trading/data/.gitkeep
+
+# Config secrets (local overrides)
+*.local.json
+*.local.yaml
+.secrets/
+
+# But DO NOT ignore these critical directories:
+!extensions/
+!extensions/momentum_trading/
+!OpenJarvis/
